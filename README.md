@@ -29,7 +29,7 @@ Instead of skimming abstracts or reading 20-page PDFs, you get AI-generated summ
 ## Features
 
 **Research Tab**
-- Daily feed of top papers with AI-generated summaries and tags
+- Daily feed of top papers with AI-generated summaries and tags :)
 - 7 topics with 50+ subtopics — from LLMs and computer vision to number theory and quantum physics
 - AI-generated trend analysis identifying research gaps and emerging directions
 - Browse and import papers on-demand from HuggingFace and arXiv
