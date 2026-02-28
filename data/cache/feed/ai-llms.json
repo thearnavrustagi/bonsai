@@ -1,0 +1,219 @@
+{
+  "cacheDate": "2026-02-28",
+  "data": [
+    {
+      "id": "2602.23351",
+      "title": "Scale Can't Overcome Pragmatics: The Impact of Reporting Bias on Vision-Language Reasoning",
+      "authors": [
+        "Amita Kamath",
+        "Jack Hessel",
+        "Khyathi Chandu",
+        "Jena D. Hwang",
+        "Kai-Wei Chang",
+        "Ranjay Krishna"
+      ],
+      "abstract": "The lack of reasoning capabilities in Vision-Language Models (VLMs) has remained at the forefront of research discourse. We posit that this behavior stems from a reporting bias in their training data. That is, how people communicate about visual content by default omits tacit information needed to supervise some types of reasoning; e.g., \"at the game today!\" is a more likely caption than \"a photo of 37 people standing behind a field\". We investigate the data underlying the popular VLMs OpenCLIP, LLaVA-1.5 and Molmo through the lens of theories from pragmatics, and find that reporting bias results in insufficient representation of four reasoning skills (spatial, temporal, negation, and counting), despite the corpora being of web-scale, and/or synthetically generated. With a set of curated benchmarks, we demonstrate that: (i) VLMs perform poorly on the aforementioned types of reasoning suppressed in the training data by reporting bias; (ii) contrary to popular belief, scaling data size, model size, and to multiple languages does not result in emergence of these skills by default; but, promisingly, (iii) incorporating annotations specifically collected to obtain tacit information is effective. Our findings highlight the need for more intentional training data curation methods, rather than counting on scale for emergence of reasoning capabilities.",
+      "description": "This paper investigates why **Vision-Language Models (VLMs)** struggle with reasoning, attributing it to **reporting bias** in their training data. This bias arises because people naturally omit **tacit information** when describing visual content, hindering the models' ability to understand underlying commonsense. The research suggests that simply scaling models won't overcome these inherent data limitations.",
+      "mlTag": "Vision",
+      "appTag": "General",
+      "arxivUrl": "https://arxiv.org/abs/2602.23351",
+      "pdfUrl": "https://arxiv.org/pdf/2602.23351",
+      "publishedAt": "2026-02-26T18:54:06Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.23329",
+      "title": "LLM Novice Uplift on Dual-Use, In Silico Biology Tasks",
+      "authors": [
+        "Chen Bo Calvin Zhang",
+        "Christina Q. Knight",
+        "Nicholas Kruus",
+        "Jason Hausenloy",
+        "Pedro Medeiros",
+        "Nathaniel Li",
+        "Aiden Kim",
+        "Yury Orlovskiy",
+        "Coleman Breen",
+        "Bryce Cai",
+        "Jasper Götting",
+        "Andrew Bo Liu",
+        "Samira Nedungadi",
+        "Paula Rodriguez",
+        "Yannis Yiming He",
+        "Mohamed Shaaban",
+        "Zifan Wang",
+        "Seth Donoughe",
+        "Julian Michael"
+      ],
+      "abstract": "Large language models (LLMs) perform increasingly well on biology benchmarks, but it remains unclear whether they uplift novice users -- i.e., enable humans to perform better than with internet-only resources. This uncertainty is central to understanding both scientific acceleration and dual-use risk. We conducted a multi-model, multi-benchmark human uplift study comparing novices with LLM access versus internet-only access across eight biosecurity-relevant task sets. Participants worked on complex problems with ample time (up to 13 hours for the most involved tasks). We found that LLM access provided substantial uplift: novices with LLMs were 4.16 times more accurate than controls (95% CI [2.63, 6.87]). On four benchmarks with available expert baselines (internet-only), novices with LLMs outperformed experts on three of them. Perhaps surprisingly, standalone LLMs often exceeded LLM-assisted novices, indicating that users were not eliciting the strongest available contributions from the LLMs. Most participants (89.6%) reported little difficulty obtaining dual-use-relevant information despite safeguards. Overall, LLMs substantially uplift novices on biological tasks previously reserved for trained practitioners, underscoring the need for sustained, interactive uplift evaluations alongside traditional benchmarks.",
+      "description": "This research examines whether **Large Language Models (LLMs)** can empower **novice users** to excel in **in silico biology tasks**. It investigates the potential for LLMs to accelerate scientific discovery while also considering the inherent **dual-use risks**. The study aims to understand the impact of LLMs on human performance in complex scientific domains.",
+      "mlTag": "LLMs",
+      "appTag": "Science",
+      "arxivUrl": "https://arxiv.org/abs/2602.23329",
+      "pdfUrl": "https://arxiv.org/pdf/2602.23329",
+      "publishedAt": "2026-02-26T18:37:23Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.23300",
+      "title": "A Mixture-of-Experts Model for Multimodal Emotion Recognition in Conversations",
+      "authors": [
+        "Soumya Dutta",
+        "Smruthi Balaji",
+        "Sriram Ganapathy"
+      ],
+      "abstract": "Emotion Recognition in Conversations (ERC) presents unique challenges, requiring models to capture the temporal flow of multi-turn dialogues and to effectively integrate cues from multiple modalities. We propose Mixture of Speech-Text Experts for Recognition of Emotions (MiSTER-E), a modular Mixture-of-Experts (MoE) framework designed to decouple two core challenges in ERC: modality-specific context modeling and multimodal information fusion. MiSTER-E leverages large language models (LLMs) fine-tuned for both speech and text to provide rich utterance-level embeddings, which are then enhanced through a convolutional-recurrent context modeling layer. The system integrates predictions from three experts-speech-only, text-only, and cross-modal-using a learned gating mechanism that dynamically weighs their outputs. To further encourage consistency and alignment across modalities, we introduce a supervised contrastive loss between paired speech-text representations and a KL-divergence-based regulariza-tion across expert predictions. Importantly, MiSTER-E does not rely on speaker identity at any stage. Experiments on three benchmark datasets-IEMOCAP, MELD, and MOSI-show that our proposal achieves 70.9%, 69.5%, and 87.9% weighted F1-scores respectively, outperforming several baseline speech-text ERC systems. We also provide various ablations to highlight the contributions made in the proposed approach.",
+      "description": "This paper introduces **MiSTER-E**, a novel **Mixture-of-Experts (MoE)** model designed for **Multimodal Emotion Recognition in Conversations (ERC)**. MiSTER-E effectively integrates **speech and text cues** to capture the temporal dynamics of multi-turn dialogues. This architecture aims to overcome the challenges of complex conversational emotion analysis by leveraging specialized expert components.",
+      "mlTag": "Other",
+      "appTag": "NLP",
+      "arxivUrl": "https://arxiv.org/abs/2602.23300",
+      "pdfUrl": "https://arxiv.org/pdf/2602.23300",
+      "publishedAt": "2026-02-26T18:08:40Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.23286",
+      "title": "SPARTA: Scalable and Principled Benchmark of Tree-Structured Multi-hop QA over Text and Tables",
+      "authors": [
+        "Sungho Park",
+        "Jueun Kim",
+        "Wook-Shin Han"
+      ],
+      "abstract": "Real-world Table-Text question answering (QA) tasks require models that can reason across long text and source tables, traversing multiple hops and executing complex operations such as aggregation. Yet existing benchmarks are small, manually curated - and therefore error-prone - and contain shallow questions that seldom demand more than two hops or invoke aggregations, grouping, or other advanced analytical operations expressible in natural-language queries. We present SPARTA, an end-to-end construction framework that automatically generates large-scale Table-Text QA benchmarks with lightweight human validation, requiring only one quarter of the annotation time of HybridQA. The framework first constructs a reference fact database by enriching each source table with grounding tables whose tuples are atomic facts automatically extracted from the accompanying unstructured passages, then synthesizes nested queries whose number of nested predicates matches the desired hop count. To ensure that every SQL statement is executable and that its verbalization yields a fluent, human-sounding question, we propose two novel techniques: provenance-based refinement, which rewrites any syntactically valid query that returns a non-empty result, and realistic-structure enforcement, which confines generation to post-order traversals of the query graph. The resulting pipeline produces thousands of high-fidelity question-answer pairs covering aggregations, grouping, and deep multi-hop reasoning across text and tables. On SPARTA, state-of-the-art models that reach over 70 F1 on HybridQA or over 50 F1 on OTT-QA drop by more than 30 F1 points, exposing fundamental weaknesses in current cross-modal reasoning. Our benchmark, construction code, and baseline models are available at https://github.com/pshlego/SPARTA/tree/main.",
+      "description": "This paper presents **SPARTA**, a new **scalable and principled benchmark** for **Table-Text Question Answering (QA)**, addressing the need for more robust evaluation datasets. SPARTA challenges models to perform **multi-hop reasoning** across long text and source tables, requiring complex operations such as aggregation. It aims to overcome the limitations of existing small, manually curated, and error-prone benchmarks.",
+      "mlTag": "Data",
+      "appTag": "Retrieval",
+      "arxivUrl": "https://arxiv.org/abs/2602.23286",
+      "pdfUrl": "https://arxiv.org/pdf/2602.23286",
+      "publishedAt": "2026-02-26T17:59:51Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.23266",
+      "title": "Discourse-Aware Dual-Track Streaming Response for Low-Latency Spoken Dialogue Systems",
+      "authors": [
+        "Siyuan Liu",
+        "Jiahui Xu",
+        "Feng Jiang",
+        "Kuang Wang",
+        "Zefeng Zhao",
+        "Chu-Ren Huang",
+        "Jinghang Gu",
+        "Changqing Yin",
+        "Haizhou Li"
+      ],
+      "abstract": "Achieving human-like responsiveness is a critical yet challenging goal for cascaded spoken dialogue systems. Conventional ASR-LLM-TTS pipelines follow a strictly sequential paradigm, requiring complete transcription and full reasoning before speech synthesis can begin, which results in high response latency. We propose the Discourse-Aware Dual-Track Streaming Response (DDTSR) framework, a low-latency architecture that enables listen-while-thinking and speak-while-thinking. DDTSR is built upon three key mechanisms: (1) connective-guided small-large model synergy, where an auxiliary small model generates minimal-committal discourse connectives while a large model performs knowledge-intensive reasoning in parallel; (2) streaming-based cross-modal collaboration, which dynamically overlaps ASR, LLM inference, and TTS to advance the earliest speakable moment; and (3) curriculum-learning-based discourse continuity enhancement, which maintains coherence and logical consistency between early responses and subsequent reasoning outputs. Experiments on two spoken dialogue benchmarks demonstrate that DDTSR reduces response latency by 19%-51% while preserving discourse quality. Further analysis shows that DDTSR functions as a plug-and-play module compatible with diverse LLM backbones, and remains robust across varying utterance lengths, indicating strong practicality and scalability for real-time spoken interaction.",
+      "description": "This paper proposes a **discourse-aware dual-track streaming response** mechanism to achieve **low-latency and human-like responsiveness** in **spoken dialogue systems**. It tackles the high latency of traditional ASR-LLM-TTS pipelines by enabling parallel processing, avoiding the strictly sequential transcription and reasoning steps. This approach significantly improves the efficiency and user experience of conversational AI.",
+      "mlTag": "Systems",
+      "appTag": "NLP",
+      "arxivUrl": "https://arxiv.org/abs/2602.23266",
+      "pdfUrl": "https://arxiv.org/pdf/2602.23266",
+      "publishedAt": "2026-02-26T17:39:56Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.23258",
+      "title": "AgentDropoutV2: Optimizing Information Flow in Multi-Agent Systems via Test-Time Rectify-or-Reject Pruning",
+      "authors": [
+        "Yutong Wang",
+        "Siyuan Xiong",
+        "Xuebo Liu",
+        "Wenkang Zhou",
+        "Liang Ding",
+        "Miao Zhang",
+        "Min Zhang"
+      ],
+      "abstract": "While Multi-Agent Systems (MAS) excel in complex reasoning, they suffer from the cascading impact of erroneous information generated by individual participants. Current solutions often resort to rigid structural engineering or expensive fine-tuning, limiting their deployability and adaptability. We propose AgentDropoutV2, a test-time rectify-or-reject pruning framework designed to dynamically optimize MAS information flow without retraining. Our approach acts as an active firewall, intercepting agent outputs and employing a retrieval-augmented rectifier to iteratively correct errors based on a failure-driven indicator pool. This mechanism allows for the precise identification of potential errors using distilled failure patterns as prior knowledge. Irreparable outputs are subsequently pruned to prevent error propagation, while a fallback strategy preserves system integrity. Empirical results on extensive math benchmarks show that AgentDropoutV2 significantly boosts the MAS's task performance, achieving an average accuracy gain of 6.3 percentage points on math benchmarks. Furthermore, the system exhibits robust generalization and adaptivity, dynamically modulating rectification efforts based on task difficulty while leveraging context-aware indicators to resolve a wide spectrum of error patterns. Our code and dataset are released at https://github.com/TonySY2/AgentDropoutV2.",
+      "description": "This paper introduces **AgentDropoutV2**, a novel **test-time rectify-or-reject pruning** method designed to optimize **information flow** in **Multi-Agent Systems (MAS)**. It addresses the critical issue of **cascading erroneous information** that can degrade MAS performance. By dynamically pruning or correcting agent outputs, AgentDropoutV2 offers a flexible and adaptive solution to enhance system robustness without extensive fine-tuning.",
+      "mlTag": "Optimization",
+      "appTag": "General",
+      "arxivUrl": "https://arxiv.org/abs/2602.23258",
+      "pdfUrl": "https://arxiv.org/pdf/2602.23258",
+      "publishedAt": "2026-02-26T17:31:43Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.23225",
+      "title": "Why Diffusion Language Models Struggle with Truly Parallel (Non-Autoregressive) Decoding?",
+      "authors": [
+        "Pengxiang Li",
+        "Dilxat Muhtar",
+        "Lu Yin",
+        "Tianlong Chen",
+        "Shiwei Liu"
+      ],
+      "abstract": "Diffusion Language Models (DLMs) are often advertised as enabling parallel token generation, yet practical fast DLMs frequently converge to left-to-right, autoregressive (AR)-like decoding dynamics. In contrast, genuinely non-AR generation is promising because it removes AR's sequential bottleneck, better exploiting parallel hardware to reduce synchronization/communication overhead and improve latency scaling with output length. We argue that a primary driver of AR-like decoding is a mismatch between DLM objectives and the highly sequential structure of widely used training data, including standard pretraining corpora and long chain-of-thought (CoT) supervision. Motivated by this diagnosis, we propose NAP (Non-Autoregressive Parallel DLMs), a proof-of-concept, data-centric approach that better aligns supervision with non-AR parallel decoding. NAP curates examples as multiple independent reasoning trajectories and couples them with a parallel-forced decoding strategy that encourages multi-token parallel updates. Across math reasoning benchmarks, NAP yields stronger performance under parallel decoding than DLMs trained on standard long CoT data, with gains growing as parallelism increases. Our results suggest that revisiting data and supervision is a principled direction for mitigating AR-like behavior and moving toward genuinely non-autoregressive parallel generation in DLMs. Our code is available at https://github.com/pixeli99/NAP.",
+      "description": "This paper explores why **Diffusion Language Models (DLMs)**, despite their promise of **parallel token generation**, frequently exhibit **autoregressive (AR)-like decoding dynamics**. It investigates the inherent difficulties in achieving truly **non-autoregressive generation** with DLMs, which could remove sequential bottlenecks and significantly accelerate text generation. The research delves into the theoretical and practical reasons behind this struggle.",
+      "mlTag": "Generative",
+      "appTag": "NLP",
+      "arxivUrl": "https://arxiv.org/abs/2602.23225",
+      "pdfUrl": "https://arxiv.org/pdf/2602.23225",
+      "publishedAt": "2026-02-26T17:04:57Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.23200",
+      "title": "InnerQ: Hardware-aware Tuning-free Quantization of KV Cache for Large Language Models",
+      "authors": [
+        "Sayed Mohammadreza Tayaranian Hosseini",
+        "Amir Ardakani",
+        "Warren J. Gross"
+      ],
+      "abstract": "Reducing the hardware footprint of large language models (LLMs) during decoding is critical for efficient long-sequence generation. A key bottleneck is the key-value (KV) cache, whose size scales with sequence length and easily dominates the memory footprint of the model. Previous work proposed quantization methods that are focused on compressing the KV cache while maintaining its information. We introduce InnerQ, a hardware-aware KV-cache quantization scheme that lowers decode latency without sacrificing accuracy. InnerQ applies group-wise quantization while grouping the cache matrices over their inner dimension. Unlike previous work that group over the outer dimension, InnerQ aligns dequantization with the vector-matrix multiplication and enables scale factor reuse across GPU compute units. This reduces memory accesses and accelerates dequantization, yielding up to $22\\%$ speedup over previous work and up to $88\\%$ over half-precision vector-matrix multiplication. To preserve fidelity under aggressive compression, InnerQ incorporates (i) hybrid quantization, selecting symmetric or asymmetric quantization per group based on local statistics; (ii) high-precision windows for both the most recent tokens and the attention sink tokens to mitigate outlier leakage; and (iii) per-channel normalization of the key cache, computed once during prefill and folded into the query to avoid runtime overhead. Our evaluation experiments on Llama models shows that InnerQ maintains a few-shot GSM8K performance comparable to non-quantized KV caches and surpasses prior KV cache quantization methods.",
+      "description": "This paper introduces **InnerQ**, a **hardware-aware tuning-free quantization** method specifically designed for the **KV cache** in **Large Language Models (LLMs)**. InnerQ aims to significantly reduce the **hardware footprint** during decoding, addressing the critical bottleneck of KV cache size in long-sequence generation. This approach offers a practical solution for improving the efficiency and deployability of LLMs.",
+      "mlTag": "Optimization",
+      "appTag": "Systems",
+      "arxivUrl": "https://arxiv.org/abs/2602.23200",
+      "pdfUrl": "https://arxiv.org/pdf/2602.23200",
+      "publishedAt": "2026-02-26T16:50:36Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.23197",
+      "title": "Fine-Tuning Without Forgetting In-Context Learning: A Theoretical Analysis of Linear Attention Models",
+      "authors": [
+        "Chungpa Lee",
+        "Jy-yong Sohn",
+        "Kangwook Lee"
+      ],
+      "abstract": "Transformer-based large language models exhibit in-context learning, enabling adaptation to downstream tasks via few-shot prompting with demonstrations. In practice, such models are often fine-tuned to improve zero-shot performance on downstream tasks, allowing them to solve tasks without examples and thereby reducing inference costs. However, fine-tuning can degrade in-context learning, limiting the performance of fine-tuned models on tasks not seen during fine-tuning. Using linear attention models, we provide a theoretical analysis that characterizes how fine-tuning objectives modify attention parameters and identifies conditions under which this leads to degraded few-shot performance. We show that fine-tuning all attention parameters can harm in-context learning, whereas restricting updates to the value matrix improves zero-shot performance while preserving in-context learning. We further show that incorporating an auxiliary few-shot loss enhances in-context learning primarily on the target task, at the expense of degraded in-context learning ability on tasks not seen during fine-tuning. We empirically validate our theoretical results.",
+      "description": "This paper provides a **theoretical analysis** of how **fine-tuning** impacts **in-context learning (ICL)** capabilities in **Transformer-based large language models**. Focusing on **linear attention models**, it investigates the mechanisms by which models retain or lose their ability to adapt to tasks via few-shot prompting after fine-tuning for zero-shot performance. The research aims to understand the interplay between these crucial learning paradigms.",
+      "mlTag": "Theory",
+      "appTag": "NLP",
+      "arxivUrl": "https://arxiv.org/abs/2602.23197",
+      "pdfUrl": "https://arxiv.org/pdf/2602.23197",
+      "publishedAt": "2026-02-26T16:49:15Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.23184",
+      "title": "MTRAG-UN: A Benchmark for Open Challenges in Multi-Turn RAG Conversations",
+      "authors": [
+        "Sara Rosenthal",
+        "Yannis Katsis",
+        "Vraj Shah",
+        "Lihong He",
+        "Lucian Popa",
+        "Marina Danilevsky"
+      ],
+      "abstract": "We present MTRAG-UN, a benchmark for exploring open challenges in multi-turn retrieval augmented generation, a popular use of large language models. We release a benchmark of 666 tasks containing over 2,800 conversation turns across 6 domains with accompanying corpora. Our experiments show that retrieval and generation models continue to struggle on conversations with UNanswerable, UNderspecified, and NONstandalone questions and UNclear responses. Our benchmark is available at https://github.com/IBM/mt-rag-benchmark",
+      "description": "This paper introduces **MTRAG-UN**, a comprehensive **benchmark** designed to explore open challenges in **multi-turn Retrieval Augmented Generation (RAG)** conversations. It provides 666 tasks across six diverse domains, featuring over 2,800 conversation turns and accompanying corpora. The benchmark aims to facilitate research into robust retrieval and generation strategies for complex, interactive dialogue systems.",
+      "mlTag": "Data",
+      "appTag": "Retrieval",
+      "arxivUrl": "https://arxiv.org/abs/2602.23184",
+      "pdfUrl": "https://arxiv.org/pdf/2602.23184",
+      "publishedAt": "2026-02-26T16:41:17Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    }
+  ]
+}

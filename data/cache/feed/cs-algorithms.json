@@ -1,0 +1,184 @@
+{
+  "cacheDate": "2026-02-28",
+  "data": [
+    {
+      "id": "2602.23341",
+      "title": "Mean Estimation from Coarse Data: Characterizations and Efficient Algorithms",
+      "authors": [
+        "Alkis Kalavasis",
+        "Anay Mehrotra",
+        "Manolis Zampetakis",
+        "Felix Zhou",
+        "Ziyu Zhu"
+      ],
+      "abstract": "Coarse data arise when learners observe only partial information about samples; namely, a set containing the sample rather than its exact value. This occurs naturally through measurement rounding, sensor limitations, and lag in economic systems. We study Gaussian mean estimation from coarse data, where each true sample $x$ is drawn from a $d$-dimensional Gaussian distribution with identity covariance, but is revealed only through the set of a partition containing $x$. When the coarse samples, roughly speaking, have ``low'' information, the mean cannot be uniquely recovered from observed samples (i.e., the problem is not identifiable). Recent work by Fotakis, Kalavasis, Kontonis, and Tzamos [FKKT21] established that sample-efficient mean estimation is possible when the unknown mean is identifiable and the partition consists of only convex sets. Moreover, they showed that without convexity, mean estimation becomes NP-hard. However, two fundamental questions remained open: (1) When is the mean identifiable under convex partitions? (2) Is computationally efficient estimation possible under identifiability and convex partitions? This work resolves both questions. [...]",
+      "description": "This paper explores **Gaussian mean estimation** from **coarse data**, where learners observe only partial information like measurement rounding or sensor limitations. It provides **characterizations** and **efficient algorithms** for this fundamental statistical problem.",
+      "mlTag": "Data",
+      "appTag": "General",
+      "arxivUrl": "https://arxiv.org/abs/2602.23341",
+      "pdfUrl": "https://arxiv.org/pdf/2602.23341",
+      "publishedAt": "2026-02-26T18:47:06Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.23196",
+      "title": "Equivalent Dichotomies for Triangle Detection in Subgraph, Induced, and Colored H-Free Graphs",
+      "authors": [
+        "Amir Abboud",
+        "Ron Safier",
+        "Nathan Wallheimer"
+      ],
+      "abstract": "A recent paper by the authors (ITCS'26) initiates the study of the Triangle Detection problem in graphs avoiding a fixed pattern $H$ as a subgraph and proposes a \\emph{dichotomy hypothesis} characterizing which patterns $H$ make the Triangle Detection problem easier in $H$-free graphs than in general graphs.\n  In this work, we demonstrate that this hypothesis is, in fact, equivalent to analogous hypotheses in two broader settings that a priori seem significantly more challenging: \\emph{induced} $H$-free graphs and \\emph{colored} $H$-free graphs.\n  Our main contribution is a reduction from the induced $H$-free case to the non-induced $\\H^+$-free case, where $\\H^+$ preserves the structural properties of $H$ that are relevant for the dichotomy, namely $3$-colorability and triangle count. A similar reduction is given for the colored case.\n  A key technical ingredient is a self-reduction to Unique Triangle Detection that preserves the induced $H$-freeness property, via a new color-coding-like reduction.",
+      "description": "This research investigates the **Triangle Detection problem** in **H-free graphs**, which avoid a fixed pattern H as a subgraph. It proposes a **dichotomy hypothesis** to characterize when this problem is easier in H-free graphs compared to general graphs.",
+      "mlTag": "Graph",
+      "appTag": "General",
+      "arxivUrl": "https://arxiv.org/abs/2602.23196",
+      "pdfUrl": "https://arxiv.org/pdf/2602.23196",
+      "publishedAt": "2026-02-26T16:48:07Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.23183",
+      "title": "Dequantization Barriers for Guided Stoquastic Hamiltonians",
+      "authors": [
+        "Yassine Hamoudi",
+        "Yvan Le Borgne",
+        "Shrinidhi Teganahally Sridhara"
+      ],
+      "abstract": "We construct a probability distribution, induced by the Perron--Frobenius eigenvector of an exponentially large graph, which cannot be efficiently sampled by any classical algorithm, even when provided with the best-possible warm-start distribution. In the quantum setting, this problem can be viewed as preparing the ground state of a stoquastic Hamiltonian given a guiding state as input, and is known to be efficiently solvable on a quantum computer. Our result suggests that no efficient classical algorithm can solve a broad class of stoquastic ground-state problems.\n  Our graph is constructed from a class of high-degree, high-girth spectral expanders to which self-similar trees are attached. This builds on and extends prior work of Gilyén, Hastings, and Vazirani [Quantum 2021, STOC 2021], which ruled out dequantization for a specific stoquastic adiabatic path algorithm. We strengthen their result by ruling out any classical algorithm for guided ground-state preparation.",
+      "description": "This paper constructs a probability distribution from a **Perron--Frobenius eigenvector** that **cannot be efficiently sampled** by any classical algorithm. It highlights fundamental **dequantization barriers** in the context of guided stoquastic Hamiltonians and quantum state sampling.",
+      "mlTag": "Theory",
+      "appTag": "Science",
+      "arxivUrl": "https://arxiv.org/abs/2602.23183",
+      "pdfUrl": "https://arxiv.org/pdf/2602.23183",
+      "publishedAt": "2026-02-26T16:40:32Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.22980",
+      "title": "Isolation critical graphs under multiple edge subdivision",
+      "authors": [
+        "Karl Bartolo",
+        "Peter Borg",
+        "Magda Dettlaff",
+        "Magdalena Lemańska",
+        "Paweł Żyliński"
+      ],
+      "abstract": "This paper introduces the notion of $(ι,q)$-critical graphs. The isolation number of a graph $G$, denoted by $ι(G)$ and also known as the vertex-edge domination number, is the minimum number of vertices in a set $D$ such that the subgraph induced by the vertices not in the closed neighbourhood of $D$ has no edges.\n  A graph $G$ is $(ι,q)$-critical, $q \\ge 1$, if the subdivision of any $q$ edges in $G$ gives a graph with isolation number greater than $ι(G)$ and there exists a set of $q-1$ edges such that subdividing them gives a graph with isolation number equal to $ι(G)$.\n  We prove that for each integer $q \\ge 1$ there exists a $(ι,q)$-critical graph, while for a given graph $G$, the admissible values of $q$ satisfy $1 \\le q \\le |E(G)| - 1$. In addition, we provide a general characterisation of $(ι,1)$-critical graphs as well as a constructive characterisation of $(ι,1)$-critical trees.",
+      "description": "This paper introduces and studies **$(ι,q)$-critical graphs**, based on the novel concept of the **isolation number** (also known as the vertex-edge domination number). It contributes to **graph theory** by analyzing how this property behaves under edge subdivision.",
+      "mlTag": "Graph",
+      "appTag": "General",
+      "arxivUrl": "https://arxiv.org/abs/2602.22980",
+      "pdfUrl": "https://arxiv.org/pdf/2602.22980",
+      "publishedAt": "2026-02-26T13:22:00Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.22976",
+      "title": "Efficient Parallel Algorithms for Hypergraph Matching",
+      "authors": [
+        "Henrik Reinstädtler",
+        "Christian Schulz",
+        "Nodari Sitchinava",
+        "Fabian Walliser"
+      ],
+      "abstract": "We present efficient parallel algorithms for computing maximal matchings in hypergraphs. Our algorithm finds locally maximal edges in the hypergraph and adds them in parallel to the matching. In the CRCW PRAM models our algorithms achieve $O(\\log{m})$ time with $O((κ+ n) \\log {m})$ work w.h.p. where $m$ is the number of hyperedges, and $κ$ is the sum of all vertex degrees. The CREW PRAM model algorithm has a running time of $O((\\logΔ+\\log{d})\\log{m})$ and requires $O((κ+ n) \\log {m})$ work w.h.p. It can be implemented work-optimal with $O(κ+n)$ work in $O((\\log{m}+\\log{n})\\log{m})$ time. We prove a $1/d$-approximation guarantee for our algorithms.\n  We evaluate our algorithms experimentally by implementing and running the proposed algorithms on the GPU using CUDA and Kokkos. Our experimental evaluation demonstrates the practical efficiency of our approach on real-world hypergraph instances, yielding a speed up of up to 76 times compared to a single-core CPU algorithm.",
+      "description": "This work presents **efficient parallel algorithms** for computing **maximal matchings in hypergraphs**. The algorithms leverage **CRCW PRAM models** to achieve significant speedups, finding locally maximal edges in logarithmic time.",
+      "mlTag": "Graph",
+      "appTag": "General",
+      "arxivUrl": "https://arxiv.org/abs/2602.22976",
+      "pdfUrl": "https://arxiv.org/pdf/2602.22976",
+      "publishedAt": "2026-02-26T13:16:38Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.22916",
+      "title": "A Simple Distributed Deterministic Planar Separator",
+      "authors": [
+        "Yaseen Abd-Elhaleem",
+        "Michal Dory",
+        "Oren Weimann"
+      ],
+      "abstract": "A balanced separator of a graph $G$ is a set of vertices whose removal disconnects the graph into connected components that are a constant factor smaller than $G$. Lipton and Tarjan [FOCS'77] famously proved that every planar graph admits a balanced separator of size $O(\\sqrt{n})$, as well as a balanced separator of size $O(D)$ that is a simple path (where $D$ is $G$'s diameter). In the centralized setting, both separators can be found in linear time. In the distributed setting, $D$ is a universal lower bound for the round complexity of solving many optimization problems, so, separators of size $O(D)$ are preferable.\n  It was not until [DISC'17] that a distributed algorithm was devised by Ghaffari and Parter to compute such an $O(D)$-size separator in $\\tilde O(D)$ rounds, by adapting the Lipton-Tarjan algorithm to the distributed model. Since then, this algorithm was used in several distributed algorithms for planar graphs, e.g., [GP, DISC'17], [LP, STOC'19], [AEDPW, PODC'25]. However, the algorithm is randomized, deeming the algorithms that use it to be randomized as well. Obtaining a deterministic algorithm remained an interesting open question until [PODC'25], when a (complex) deterministic separator algorithm was given by Jauregui, Montealegre and Rapaport.\n  We present a much simpler deterministic separator algorithm with the same (near-optimal) $\\tilde O(D)$-round complexity. While previous works devised either complicated or randomized ways of transferring weights from vertices to faces of $G$, we show that a straightforward way also works: Each vertex simply transfers its weight to one arbitrary face it lies on. That's it!\n  We note that a deterministic separator algorithm directly derandomizes the state-of-the-art distributed algorithms for classical problems on planar graphs such as single-source shortest-paths, maximum-flow, directed global min-cut, and reachability.",
+      "description": "This paper provides a **simple distributed deterministic algorithm** for finding **balanced planar graph separators**. These separators efficiently disconnect a **planar graph** into smaller components, a fundamental tool in graph algorithms.",
+      "mlTag": "Graph",
+      "appTag": "General",
+      "arxivUrl": "https://arxiv.org/abs/2602.22916",
+      "pdfUrl": "https://arxiv.org/pdf/2602.22916",
+      "publishedAt": "2026-02-26T12:05:21Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.22874",
+      "title": "Flip Distance of Triangulations of Convex Polygons / Rotation Distance of Binary Trees is NP-complete",
+      "authors": [
+        "Joseph Dorfer"
+      ],
+      "abstract": "Flips in triangulations of convex polygons arise in many different settings. They are isomorphic to rotations in binary trees, define edges in the 1-skeleton of the Associahedron and cover relations in the Tamari Lattice.\n  The complexity of determining the minimum number of flips that transform one triangulation of a convex point set into another remained a tantalizing open question for many decades. We settle this question by proving that computing shortest flip sequences between triangulations of convex polygons, and therefore also computing the rotation distance of binary trees, is NP-hard.\n  For our proof we develop techniques for flip sequences of triangulations whose counterparts were introduced for the study of flip sequences of non-crossing spanning trees by Bjerkevik, Kleist, Ueckerdt, and Vogtenhuber~[SODA25] and Bjerkevik, Dorfer, Kleist, Ueckerdt, and Vogtenhuber~[SoCG26].",
+      "description": "This paper establishes that determining the **minimum flip distance** between **triangulations of convex polygons** (isomorphic to **rotation distance of binary trees**) is an **NP-complete problem**. This resolves a long-standing open question in computational geometry and combinatorics.",
+      "mlTag": "Theory",
+      "appTag": "General",
+      "arxivUrl": "https://arxiv.org/abs/2602.22874",
+      "pdfUrl": "https://arxiv.org/pdf/2602.22874",
+      "publishedAt": "2026-02-26T11:10:47Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.22870",
+      "title": "An $\\mathcal{O}(\\log N)$ Time Algorithm for the Generalized Egg Dropping Problem",
+      "authors": [
+        "Kleitos Papadopoulos"
+      ],
+      "abstract": "The generalized egg dropping problem is a canonical benchmark in sequential decision-making. Standard dynamic programming evaluates the minimum number of tests in the worst case in $\\mathcal{O}(K \\cdot N^2)$ time. The previous state-of-the-art approach formulates the testable thresholds as a partial sum of binomial coefficients and applies a combinatorial search to reduce the time complexity to $\\mathcal{O}(K \\log N)$. In this paper, we demonstrate that the discrete binary search over the decision tree can be bypassed entirely. By utilizing a relaxation of the binomial bounds, we compute an approximate root that tightly bounds the optimal value. We mathematically prove that this approximation restricts the remaining search space to exactly $\\mathcal{O}(K)$ discrete steps. Because constraints inherently enforce $K &lt; \\log_2(N+1)$, our algorithm achieves an unconditional worst-case time complexity of $\\mathcal{O}(\\min(K, \\log N))$. Furthermore, we formulate an explicit $\\mathcal{O}(1)$ space deterministic policy to dynamically retrace the optimal sequential choices, eliminating classical state-transition matrices completely.",
+      "description": "This work presents an **efficient $\\mathcal{O}(\\log N)$ time algorithm** for the **generalized egg dropping problem**, a classic benchmark in **sequential decision-making**. It significantly improves upon prior dynamic programming approaches for finding optimal test strategies.",
+      "mlTag": "Optimization",
+      "appTag": "General",
+      "arxivUrl": "https://arxiv.org/abs/2602.22870",
+      "pdfUrl": "https://arxiv.org/pdf/2602.22870",
+      "publishedAt": "2026-02-26T11:08:37Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.22619",
+      "title": "SYK thermal expectations are classically easy at any temperature",
+      "authors": [
+        "Alexander Zlokapa",
+        "Bobak T. Kiani"
+      ],
+      "abstract": "Estimating thermal expectations of local observables is a natural target for quantum advantage. We give a simple classical algorithm that approximates thermal expectations, and we show it has quasi-polynomial cost $n^{O(\\log n/ε)}$ for all temperatures above a phase transition in the free energy. For many natural models, this coincides with the entire fast-mixing, quantumly easy phase. Our results apply to the Sachdev-Ye-Kitaev (SYK) model at any constant temperature -- including when the thermal state is highly entangled and satisfies polynomial quantum circuit lower bounds, a sign problem, and nontrivial instance-to-instance fluctuations. Our analysis of the SYK model relies on the replica trick to control the complex zeros of the partition function.",
+      "description": "This paper introduces a **simple classical algorithm** that efficiently approximates **thermal expectations** of local observables in the SYK model. It challenges assumptions about **quantum advantage**, demonstrating quasi-polynomial cost for a range of temperatures.",
+      "mlTag": "Theory",
+      "appTag": "Science",
+      "arxivUrl": "https://arxiv.org/abs/2602.22619",
+      "pdfUrl": "https://arxiv.org/pdf/2602.22619",
+      "publishedAt": "2026-02-26T04:48:32Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.22506",
+      "title": "static_maps: consteval std::map and std::unordered_map Implementations in C++23",
+      "authors": [
+        "Isaac D. Myhal",
+        "Oliver Serang"
+      ],
+      "abstract": "Using consteval from C++23, we implement efficient, new versions of std::map and std::unordered_map for use when the keys are known at compile time. We demonstrate superior performance of our unordered_map on three demonstration use-cases: Lookup of elemental mass from atomic symbol, lookup of amino acid from codon, and modification of stock prices from S&amp;P 500 ticker symbols all produced runtimes &lt;40%, &lt;35%, &lt;73% of the respective runtimes of the std implementations. Our library runimes were &lt;80%, &lt;45%, &lt;97% of the lookup time of Frozen, an alternative perfect hashing implementation in C++ for problems also using constexpr keys. To our knowledge, this makes our library the overall fastest drop-in (i.e., with a similar API) alternative to std::unordered_map. On one arbitrarily chosen demo, we demonstrate runtimes &lt;35% of PTHash and &lt;89% gperf, state-of-the-art but not drop-in hashing libraries via external tools.",
+      "description": "This paper introduces `static_maps`, **compile-time `std::map` and `std::unordered_map` implementations** using **C++23 `consteval`**. These demonstrate **superior performance** for key lookups when data is known at compile time, benefiting **C++ development**.",
+      "mlTag": "Systems",
+      "appTag": "Code",
+      "arxivUrl": "https://arxiv.org/abs/2602.22506",
+      "pdfUrl": "https://arxiv.org/pdf/2602.22506",
+      "publishedAt": "2026-02-26T00:53:34Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "cacheDate": "2026-02-28",
+  "data": [
+    {
+      "id": "2602.23330",
+      "title": "Toward Expert Investment Teams:A Multi-Agent LLM System with Fine-Grained Trading Tasks",
+      "authors": [
+        "Kunihiro Miyazaki",
+        "Takanobu Kawahara",
+        "Stephen Roberts",
+        "Stefan Zohren"
+      ],
+      "abstract": "The advancement of large language models (LLMs) has accelerated the development of autonomous financial trading systems. While mainstream approaches deploy multi-agent systems mimicking analyst and manager roles, they often rely on abstract instructions that overlook the intricacies of real-world workflows, which can lead to degraded inference performance and less transparent decision-making. Therefore, we propose a multi-agent LLM trading framework that explicitly decomposes investment analysis into fine-grained tasks, rather than providing coarse-grained instructions. We evaluate the proposed framework using Japanese stock data, including prices, financial statements, news, and macro information, under a leakage-controlled backtesting setting. Experimental results show that fine-grained task decomposition significantly improves risk-adjusted returns compared to conventional coarse-grained designs. Crucially, further analysis of intermediate agent outputs suggests that alignment between analytical outputs and downstream decision preferences is a critical driver of system performance. Moreover, we conduct standard portfolio optimization, exploiting low correlation with the stock index and the variance of each system's output. This approach achieves superior performance. These findings contribute to the design of agent structure and task configuration when applying LLM agents to trading systems in practical settings.",
+      "description": "This paper explores **multi-agent LLM systems** for **autonomous financial trading**. It aims to enhance investment strategies by assigning **fine-grained trading tasks** to expert LLM agents, moving beyond abstract instructions to address real-world market complexities.",
+      "mlTag": "LLMs",
+      "appTag": "Finance",
+      "arxivUrl": "https://arxiv.org/abs/2602.23330",
+      "pdfUrl": "https://arxiv.org/pdf/2602.23330",
+      "publishedAt": "2026-02-26T18:37:36Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.22069",
+      "title": "Pools as Portfolios: Observed arbitrage efficiency &amp; LVR analysis of dynamic weight AMMs",
+      "authors": [
+        "Matthew Willetts",
+        "Christian Harrington"
+      ],
+      "abstract": "Dynamic-weight AMMs (aka Temporal Function Market Makers, TFMMs) implement algorithmic asset allocation, analogous to index or smart beta funds, by continuously updating pools' weights. A strategy updates target weights over time, and arbitrageurs trade the pool back toward those weights. This creates a sequence of small, predictable mispricings that grow until taken, effectively executing rebalances as a series of Dutch reverse auctions. Prior theoretical and simulation work (Willetts &amp; Harrington, 2024) predicted that this mechanism could outperform CEX-style rebalancing. We test that claim on two live pools on the QuantAMM protocol, one on Ethereum mainnet and one on Base, across two short rebalancing windows six months apart (July 2025 and January 2026). We perform block-level arbitrage analysis, and then measure long term outcomes using Loss-vs-Rebalancing (LVR) and Rebalancing-vs-Rebalancing (RVR) benchmarks. On mainnet, rebalancing becomes markedly more efficient over time (more frequent arbitrage trades with lower value extracted per trade), reaching performance comparable to or better than CEX-based models. On Base, rebalancing persists even when per-trade extraction is near (or below) zero, consistent with routing-driven execution, and achieves efficiencies that meet or exceed standard \"perfect rebalancing\" LVR baselines. These results demonstrate dynamic-weight AMMs as a competitive execution layer for tokenised funds, with superior performance on L2s where routing and lower data costs compress arbitrage spreads.",
+      "description": "This paper analyzes **dynamic-weight Automated Market Makers (AMMs)**, treating them as **algorithmic asset allocation** portfolios similar to index funds. It investigates **arbitrage efficiency** and **LVR (Loss-Versus-Rebalancing)** in these systems, particularly relevant for cryptoasset markets.",
+      "mlTag": "Optimization",
+      "appTag": "Finance",
+      "arxivUrl": "https://arxiv.org/abs/2602.22069",
+      "pdfUrl": "https://arxiv.org/pdf/2602.22069",
+      "publishedAt": "2026-02-25T16:16:49Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.21869",
+      "title": "A Bayesian approach to out-of-sample network reconstruction",
+      "authors": [
+        "Mattia Marzi",
+        "Tiziano Squartini"
+      ],
+      "abstract": "Networks underpin systems that range from finance to biology, yet their structure is often only partially observed. Current reconstruction methods typically fit the parameters of a model anew to each snapshot, thus offering no guidance to predict future configurations. Here, we develop a Bayesian approach that uses the information about past network snapshots to inform a prior and predict the subsequent ones, while quantifying uncertainty. Instantiated with a single-parameter fitness model, our method infers link probabilities from node strengths and carries information forward in time. When applied to the Electronic Market for Interbank Deposit across the years 1999-2012, our method accurately recovers the number of connections per bank at subsequent times, outperforming probabilistic benchmarks designed for analogous, link prediction tasks. Notably, each predicted snapshot serves as a reliable prior for the next one, thus enabling self-sustained, out-of-sample reconstruction of evolving networks with a minimal amount of additional data.",
+      "description": "This paper proposes a **Bayesian approach** for **out-of-sample network reconstruction**, addressing the challenge of partially observed network structures in diverse systems like finance and biology. Unlike traditional methods, it offers **guidance to predict future configurations** by fitting parameters across snapshots.",
+      "mlTag": "Theory",
+      "appTag": "General",
+      "arxivUrl": "https://arxiv.org/abs/2602.21869",
+      "pdfUrl": "https://arxiv.org/pdf/2602.21869",
+      "publishedAt": "2026-02-25T12:53:31Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.21173",
+      "title": "Bayesian Parametric Portfolio Policies",
+      "authors": [
+        "Miguel C. Herculano"
+      ],
+      "abstract": "Parametric Portfolio Policies (PPP) estimate optimal portfolio weights directly as functions of observable signals by maximizing expected utility, bypassing the need to model asset returns and covariances. However, PPP ignores policy risk. We show that this is consequential, leading to an overstatement of expected utility and an understatement of portfolio risk. We develop Bayesian Parametric Portfolio Policies (BPPP), which place a prior on policy coefficients thereby correcting the decision rule. We derive a general result showing that the utility gap between PPP and BPPP is strictly positive and proportional to posterior parameter uncertainty and signal magnitude. Under a mean--variance approximation, this correction appears as an additional estimation-risk term in portfolio variance, implying that PPP overexposes when signals are strongest and when risk aversion is high. Empirically, in a high-dimensional setting with 242 signals and six factors over 1973--2023, BPPP delivers higher Sharpe ratios, substantially lower turnover, larger investor welfare, and lower tail risk, with advantages that increase monotonically in risk aversion and are strongest during crisis episodes.",
+      "description": "This paper introduces **Bayesian Parametric Portfolio Policies (PPP)** to estimate optimal portfolio weights as functions of observable signals, maximizing expected utility. It addresses the limitation of traditional PPP by incorporating **policy risk**, which is crucial for a more accurate assessment of investment strategies.",
+      "mlTag": "Optimization",
+      "appTag": "Finance",
+      "arxivUrl": "https://arxiv.org/abs/2602.21173",
+      "pdfUrl": "https://arxiv.org/pdf/2602.21173",
+      "publishedAt": "2026-02-24T18:18:26Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.21125",
+      "title": "An Infinite-Dimensional Insider Trading Game",
+      "authors": [
+        "Christian Keller",
+        "Michael C. Tseng"
+      ],
+      "abstract": "We generalize the seminal framework of Kyle (1985) to a many-asset setting, bridging the gap between informed-trading theory and modern trading practices. Specifically, we formulate an infinite-dimensional Bayesian trading game in which the informed trader's private information may concern arbitrary aspects of the cross-sectional payoff structure across a continuum of traded assets. In this general setting, we obtain a parsimonious equilibrium characterized by a single scalar fixed point, yielding closed-form characterizations of equilibrium trading strategy, price impact within and across markets, and the informational efficiency of equilibrium prices.",
+      "description": "This paper generalizes **Kyle's (1985) framework** to an **infinite-dimensional Bayesian trading game** for a many-asset setting, bridging theoretical informed-trading models with modern practices. It specifically analyzes scenarios where an **informed trader's private information** may concern arbitrary aspects of the market.",
+      "mlTag": "Theory",
+      "appTag": "Finance",
+      "arxivUrl": "https://arxiv.org/abs/2602.21125",
+      "pdfUrl": "https://arxiv.org/pdf/2602.21125",
+      "publishedAt": "2026-02-24T17:22:35Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.20856",
+      "title": "Stochastic Discount Factors with Cross-Asset Spillovers",
+      "authors": [
+        "Doron Avramov",
+        "Xin He"
+      ],
+      "abstract": "This paper develops a unified framework that links firm-level predictive signals, cross-asset spillovers, and the stochastic discount factor (SDF). Signals and spillovers are jointly estimated by maximizing the Sharpe ratio, yielding an interpretable SDF that both ranks characteristic relevance and uncovers the direction of predictive influence across assets. Out-of-sample, the SDF consistently outperforms self-predictive and expected-return benchmarks across investment universes and market states. The inferred information network highlights large, low-turnover firms as net transmitters. The framework offers a clear, economically grounded view of the informational architecture underlying cross-sectional return dynamics.",
+      "description": "This paper develops a **unified framework** linking **firm-level predictive signals**, **cross-asset spillovers**, and the **stochastic discount factor (SDF)**. It jointly estimates signals and spillovers by **maximizing the Sharpe ratio**, providing an interpretable SDF that ranks characteristic relevance in financial markets.",
+      "mlTag": "Theory",
+      "appTag": "Finance",
+      "arxivUrl": "https://arxiv.org/abs/2602.20856",
+      "pdfUrl": "https://arxiv.org/pdf/2602.20856",
+      "publishedAt": "2026-02-24T12:58:01Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.20771",
+      "title": "Market Inefficiency in Cryptoasset Markets",
+      "authors": [
+        "Joel Hasbrouck",
+        "Julian Ma",
+        "Fahad Saleh",
+        "Caspar Schwarz-Schilling"
+      ],
+      "abstract": "We demonstrate market inefficiency in cryptoasset markets. Our approach examines investments that share a dominant risk factor but differ in their exposure to a secondary risk. We derive equilibrium restrictions that must hold regardless of how investors price either risk. Our empirical results strongly reject these necessary equilibrium restrictions. The rejection implies market inefficiency that cannot be attributed to mispriced risk, suggesting the presence of frictions that impede capital reallocation.",
+      "description": "This paper empirically demonstrates **market inefficiency in cryptoasset markets** by examining investments differing in secondary risk exposure despite sharing a dominant risk factor. It derives **equilibrium restrictions** to analyze how investors price risk, providing strong empirical evidence of inefficiency.",
+      "mlTag": "Data",
+      "appTag": "Finance",
+      "arxivUrl": "https://arxiv.org/abs/2602.20771",
+      "pdfUrl": "https://arxiv.org/pdf/2602.20771",
+      "publishedAt": "2026-02-24T11:03:39Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.20552",
+      "title": "Stochastic Control Problems with Infinite Horizon and Regime Switching Arising in Optimal Liquidation with Semimartingale Strategies",
+      "authors": [
+        "Xinman Cheng",
+        "Guanxing Fu",
+        "Xiaonyu Xia"
+      ],
+      "abstract": "We study an optimal control problem on infinite time horizon with semimartingale strategies, random coefficients and regime switching. The value function and the optimal strategy can be characterized in terms of three systems of backward stochastic differential equations (BSDEs) with infinite horizon. One of them is a system of linear BSDEs with unbounded coefficients and infinite horizon, which seems to be new in literature. We establish the existence of the solutions to these BSDEs by BMO analysis and comparison theorem for multi-dimensional BSDEs. Next, we establish that the optimal control problem is well posed, in the sense that the value function is finite and the optimal strategy-when it exists-is unique. This is achieved by reformulating the cost functional as the sum of a quadratic functional and the candidate value function. The reformulation crucially relies on the well-established well-posedness results for systems of BSDEs. Finally, under additional assumptions, we obtain the unique optimal strategy.",
+      "description": "This paper investigates an **optimal control problem** with an **infinite time horizon**, **semimartingale strategies**, and **regime switching**, often arising in financial contexts like optimal liquidation. The **value function** and **optimal strategy** are characterized using systems of **backward stochastic differential equations (BSDEs)**.",
+      "mlTag": "Theory",
+      "appTag": "Finance",
+      "arxivUrl": "https://arxiv.org/abs/2602.20552",
+      "pdfUrl": "https://arxiv.org/pdf/2602.20552",
+      "publishedAt": "2026-02-24T05:10:39Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.20415",
+      "title": "Markets are competitive if and only if P != NP",
+      "authors": [
+        "Philip Z. Maymin"
+      ],
+      "abstract": "I prove that competitive market outcomes require computational intractability. If P = NP, firms can efficiently solve the collusion detection problem, identifying deviations from cooperative agreements in complex, noisy markets and thereby making collusion sustainable as an equilibrium. If P != NP, the collusion detection problem is computationally infeasible for markets satisfying a natural instance-hardness condition on their demand structure, rendering punishment threats non-credible and collusion unstable. Combined with Maymin (2011), who proved that market efficiency requires P = NP, this yields a fundamental impossibility: markets can be informationally efficient or competitive, but not both. Artificial intelligence, by expanding firms' computational capabilities, is pushing markets from the competitive regime toward the collusive regime, explaining the empirical emergence of algorithmic collusion without explicit coordination.",
+      "description": "This paper presents a theoretical proof linking market competitiveness to **computational intractability**, specifically stating that markets are competitive if and only if **P != NP**. It argues that if P = NP, firms could efficiently solve the **collusion detection problem**, making collusion a sustainable market equilibrium.",
+      "mlTag": "Theory",
+      "appTag": "General",
+      "arxivUrl": "https://arxiv.org/abs/2602.20415",
+      "pdfUrl": "https://arxiv.org/pdf/2602.20415",
+      "publishedAt": "2026-02-23T23:31:43Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.20011",
+      "title": "Schrödinger bridges with jumps for time series generation",
+      "authors": [
+        "Stefano De Marco",
+        "Huyên Pham",
+        "Davide Zanni"
+      ],
+      "abstract": "We study generative modeling for time series using entropic optimal transport and the Schrödinger bridge (SB) framework, with a focus on applications in finance and energy modeling. Extending the diffusion-based approach of Hamdouche, Henry-Labordère, Pham, 2023, we introduce a jump-diffusion Schrödinger bridge model that allows for discontinuities in the generative dynamics. Starting from a Schrödinger bridge entropy minimization problem, we reformulate the task as a stochastic control problem whose solution characterizes the optimal controlled jump-diffusion process. When sampled on a fixed time grid, this process generates synthetic time series matching the joint distributions of the observed data. The model is fully data-driven, as both the drift and the jump intensity are learned directly from the data. We propose practical algorithms for training, sampling, and hyperparameter calibration. Numerical experiments on simulated and real datasets, including financial and energy time series, show that incorporating jumps substantially improves the realism of the generated data, in particular by capturing abrupt movements, heavy tails, and regime changes that diffusion-only models fail to reproduce. Comparisons with state-of-the-art generative models highlight the benefits and limitations of the proposed approach.",
+      "description": "This paper extends the **Schrödinger bridge (SB) framework** for **generative modeling of time series**, introducing a **jump-diffusion Schrödinger bridge** to handle complex dynamics. It focuses on practical applications in **finance and energy modeling**, utilizing entropic optimal transport for robust data generation.",
+      "mlTag": "Generative",
+      "appTag": "Finance",
+      "arxivUrl": "https://arxiv.org/abs/2602.20011",
+      "pdfUrl": "https://arxiv.org/pdf/2602.20011",
+      "publishedAt": "2026-02-23T16:17:25Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    }
+  ]
+}

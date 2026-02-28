@@ -1,0 +1,210 @@
+{
+  "cacheDate": "2026-02-27",
+  "data": [
+    {
+      "id": "2602.23312",
+      "title": "Evaluating Zero-Shot and One-Shot Adaptation of Small Language Models in Leader-Follower Interaction",
+      "authors": [
+        "Rafael R. Baptista",
+        "André de Lima Salgado",
+        "Ricardo V. Godoy",
+        "Marcelo Becker",
+        "Thiago Boaventura",
+        "Gustavo J. G. Lahr"
+      ],
+      "abstract": "Leader-follower interaction is an important paradigm in human-robot interaction (HRI). Yet, assigning roles in real time remains challenging for resource-constrained mobile and assistive robots. While large language models (LLMs) have shown promise for natural communication, their size and latency limit on-device deployment. Small language models (SLMs) offer a potential alternative, but their effectiveness for role classification in HRI has not been systematically evaluated. In this paper, we present a benchmark of SLMs for leader-follower communication, introducing a novel dataset derived from a published database and augmented with synthetic samples to capture interaction-specific dynamics. We investigate two adaptation strategies: prompt engineering and fine-tuning, studied under zero-shot and one-shot interaction modes, compared with an untrained baseline. Experiments with Qwen2.5-0.5B reveal that zero-shot fine-tuning achieves robust classification performance (86.66% accuracy) while maintaining low latency (22.2 ms per sample), significantly outperforming baseline and prompt-engineered approaches. However, results also indicate a performance degradation in one-shot modes, where increased context length challenges the model's architectural capacity. These findings demonstrate that fine-tuned SLMs provide an effective solution for direct role assignment, while highlighting critical trade-offs between dialogue complexity and classification reliability on the edge.",
+      "description": "This paper evaluates **zero-shot and one-shot adaptation** of **small language models (SLMs)** for **leader-follower interaction** in **human-robot interaction (HRI)**. It addresses the challenge of assigning roles in real time for **resource-constrained mobile and assistive robots**.",
+      "mlTag": "LLMs",
+      "appTag": "Robotics",
+      "arxivUrl": "https://arxiv.org/abs/2602.23312",
+      "pdfUrl": "https://arxiv.org/pdf/2602.23312",
+      "publishedAt": "2026-02-26T18:20:26Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.23287",
+      "title": "Interface-Aware Trajectory Reconstruction of Limited Demonstrations for Robot Learning",
+      "authors": [
+        "Demiana R. Barsoum",
+        "Mahdieh Nejati Javaremi",
+        "Larisa Y. C. Loke",
+        "Brenna D. Argall"
+      ],
+      "abstract": "Assistive robots offer agency to humans with severe motor impairments. Often, these users control high-DoF robots through low-dimensional interfaces, such as using a 1-D sip-and-puff interface to operate a 6-DoF robotic arm. This mismatch results in having access to only a subset of control dimensions at a given time, imposing unintended and artificial constraints on robot motion. As a result, interface-limited demonstrations embed suboptimal motions that reflect interface restrictions rather than user intent. To address this, we present a trajectory reconstruction algorithm that reasons about task, environment, and interface constraints to lift demonstrations into the robot's full control space. We evaluate our approach using real-world demonstrations of ADL-inspired tasks performed via a 2-D joystick and 1-D sip-and-puff control interface, teleoperating two distinct 7-DoF robotic arms. Analyses of the reconstructed demonstrations and derived control policies show that lifted trajectories are faster and more efficient than their interface-constrained counterparts while respecting user preferences.",
+      "description": "This work focuses on **interface-aware trajectory reconstruction** for **robot learning**, specifically for **assistive robots**. It aims to reconstruct complete robot trajectories from **limited demonstrations**, addressing the control of **high-DoF robots** using **low-dimensional interfaces**.",
+      "mlTag": "RL",
+      "appTag": "Robotics",
+      "arxivUrl": "https://arxiv.org/abs/2602.23287",
+      "pdfUrl": "https://arxiv.org/pdf/2602.23287",
+      "publishedAt": "2026-02-26T18:01:25Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.23283",
+      "title": "Simple Models, Real Swimming: Digital Twins for Tendon-Driven Underwater Robots",
+      "authors": [
+        "Mike Y. Michelis",
+        "Nana Obayashi",
+        "Josie Hughes",
+        "Robert K. Katzschmann"
+      ],
+      "abstract": "Mimicking the graceful motion of swimming animals remains a core challenge in soft robotics due to the complexity of fluid-structure interaction and the difficulty of controlling soft, biomimetic bodies. Existing modeling approaches are often computationally expensive and impractical for complex control or reinforcement learning needed for realistic motions to emerge in robotic systems. In this work, we present a tendon-driven fish robot modeled in an efficient underwater swimmer environment using a simplified, stateless hydrodynamics formulation implemented in the widespread robotics framework MuJoCo. With just two real-world swimming trajectories, we identify five fluid parameters that allow a matching to experimental behavior and generalize across a range of actuation frequencies. We show that this stateless fluid model can generalize to unseen actuation and outperform classical analytical models such as the elongated body theory. This simulation environment runs faster than real-time and can easily enable downstream learning algorithms such as reinforcement learning for target tracking, reaching a 93% success rate. Due to the simplicity and ease of use of the model and our open-source simulation environment, our results show that even simple, stateless models -- when carefully matched to physical data -- can serve as effective digital twins for soft underwater robots, opening up new directions for scalable learning and control in aquatic environments.",
+      "description": "This paper introduces **digital twins** for **tendon-driven underwater robots** to mimic the graceful motion of swimming animals. This approach provides computationally efficient models to tackle the complexity of **fluid-structure interaction** and controlling **soft, biomimetic bodies**.",
+      "mlTag": "Systems",
+      "appTag": "Robotics",
+      "arxivUrl": "https://arxiv.org/abs/2602.23283",
+      "pdfUrl": "https://arxiv.org/pdf/2602.23283",
+      "publishedAt": "2026-02-26T17:55:22Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.23280",
+      "title": "Physics Informed Viscous Value Representations",
+      "authors": [
+        "Hrishikesh Viswanath",
+        "Juanwu Lu",
+        "S. Talha Bukhari",
+        "Damon Conover",
+        "Ziran Wang",
+        "Aniket Bera"
+      ],
+      "abstract": "Offline goal-conditioned reinforcement learning (GCRL) learns goal-conditioned policies from static pre-collected datasets. However, accurate value estimation remains a challenge due to the limited coverage of the state-action space. Recent physics-informed approaches have sought to address this by imposing physical and geometric constraints on the value function through regularization defined over first-order partial differential equations (PDEs), such as the Eikonal equation. However, these formulations can often be ill-posed in complex, high-dimensional environments. In this work, we propose a physics-informed regularization derived from the viscosity solution of the Hamilton-Jacobi-Bellman (HJB) equation. By providing a physics-based inductive bias, our approach grounds the learning process in optimal control theory, explicitly regularizing and bounding updates during value iterations. Furthermore, we leverage the Feynman-Kac theorem to recast the PDE solution as an expectation, enabling a tractable Monte Carlo estimation of the objective that avoids numerical instability in higher-order gradients. Experiments demonstrate that our method improves geometric consistency, making it broadly applicable to navigation and high-dimensional, complex manipulation tasks. Open-source codes are available at https://github.com/HrishikeshVish/phys-fk-value-GCRL.",
+      "description": "This research presents **Physics Informed Viscous Value Representations** to enhance **value estimation** in **offline goal-conditioned reinforcement learning (GCRL)**. The method addresses the challenge of limited state-action space coverage by integrating **physics-informed approaches**.",
+      "mlTag": "RL",
+      "appTag": "General",
+      "arxivUrl": "https://arxiv.org/abs/2602.23280",
+      "pdfUrl": "https://arxiv.org/pdf/2602.23280",
+      "publishedAt": "2026-02-26T17:53:46Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.23259",
+      "title": "Risk-Aware World Model Predictive Control for Generalizable End-to-End Autonomous Driving",
+      "authors": [
+        "Jiangxin Sun",
+        "Feng Xue",
+        "Teng Long",
+        "Chang Liu",
+        "Jian-Fang Hu",
+        "Wei-Shi Zheng",
+        "Nicu Sebe"
+      ],
+      "abstract": "With advances in imitation learning (IL) and large-scale driving datasets, end-to-end autonomous driving (E2E-AD) has made great progress recently. Currently, IL-based methods have become a mainstream paradigm: models rely on standard driving behaviors given by experts, and learn to minimize the discrepancy between their actions and expert actions. However, this objective of \"only driving like the expert\" suffers from limited generalization: when encountering rare or unseen long-tail scenarios outside the distribution of expert demonstrations, models tend to produce unsafe decisions in the absence of prior experience. This raises a fundamental question: Can an E2E-AD system make reliable decisions without any expert action supervision? Motivated by this, we propose a unified framework named Risk-aware World Model Predictive Control (RaWMPC) to address this generalization dilemma through robust control, without reliance on expert demonstrations. Practically, RaWMPC leverages a world model to predict the consequences of multiple candidate actions and selects low-risk actions through explicit risk evaluation. To endow the world model with the ability to predict the outcomes of risky driving behaviors, we design a risk-aware interaction strategy that systematically exposes the world model to hazardous behaviors, making catastrophic outcomes predictable and thus avoidable. Furthermore, to generate low-risk candidate actions at test time, we introduce a self-evaluation distillation method to distill riskavoidance capabilities from the well-trained world model into a generative action proposal network without any expert demonstration. Extensive experiments show that RaWMPC outperforms state-of-the-art methods in both in-distribution and out-of-distribution scenarios, while providing superior decision interpretability.",
+      "description": "This paper proposes **Risk-Aware World Model Predictive Control** for **generalizable end-to-end autonomous driving (E2E-AD)**. It combines advances in **imitation learning** with **risk assessment** to improve robustness and safety in dynamic real-world driving scenarios.",
+      "mlTag": "RL",
+      "appTag": "Robotics",
+      "arxivUrl": "https://arxiv.org/abs/2602.23259",
+      "pdfUrl": "https://arxiv.org/pdf/2602.23259",
+      "publishedAt": "2026-02-26T17:32:30Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.23253",
+      "title": "SPARR: Simulation-based Policies with Asymmetric Real-world Residuals for Assembly",
+      "authors": [
+        "Yijie Guo",
+        "Iretiayo Akinola",
+        "Lars Johannsmeier",
+        "Hugo Hadfield",
+        "Abhishek Gupta",
+        "Yashraj Narang"
+      ],
+      "abstract": "Robotic assembly presents a long-standing challenge due to its requirement for precise, contact-rich manipulation. While simulation-based learning has enabled the development of robust assembly policies, their performance often degrades when deployed in real-world settings due to the sim-to-real gap. Conversely, real-world reinforcement learning (RL) methods avoid the sim-to-real gap, but rely heavily on human supervision and lack generalization ability to environmental changes. In this work, we propose a hybrid approach that combines a simulation-trained base policy with a real-world residual policy to efficiently adapt to real-world variations. The base policy, trained in simulation using low-level state observations and dense rewards, provides strong priors for initial behavior. The residual policy, learned in the real world using visual observations and sparse rewards, compensates for discrepancies in dynamics and sensor noise. Extensive real-world experiments demonstrate that our method, SPARR, achieves near-perfect success rates across diverse two-part assembly tasks. Compared to the state-of-the-art zero-shot sim-to-real methods, SPARR improves success rates by 38.4% while reducing cycle time by 29.7%. Moreover, SPARR requires no human expertise, in contrast to the state-of-the-art real-world RL approaches that depend heavily on human supervision.",
+      "description": "This work introduces **SPARR (Simulation-based Policies with Asymmetric Real-world Residuals)** to address the **sim-to-real gap** in **robotic assembly**. It enables robust **contact-rich manipulation** by refining simulation-learned policies with **real-world experience**.",
+      "mlTag": "RL",
+      "appTag": "Robotics",
+      "arxivUrl": "https://arxiv.org/abs/2602.23253",
+      "pdfUrl": "https://arxiv.org/pdf/2602.23253",
+      "publishedAt": "2026-02-26T17:26:13Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.23224",
+      "title": "UniScale: Unified Scale-Aware 3D Reconstruction for Multi-View Understanding via Prior Injection for Robotic Perception",
+      "authors": [
+        "Mohammad Mahdavian",
+        "Gordon Tan",
+        "Binbin Xu",
+        "Yuan Ren",
+        "Dongfeng Bai",
+        "Bingbing Liu"
+      ],
+      "abstract": "We present UniScale, a unified, scale-aware multi-view 3D reconstruction framework for robotic applications that flexibly integrates geometric priors through a modular, semantically informed design. In vision-based robotic navigation, the accurate extraction of environmental structure from raw image sequences is critical for downstream tasks. UniScale addresses this challenge with a single feed-forward network that jointly estimates camera intrinsics and extrinsics, scale-invariant depth and point maps, and the metric scale of a scene from multi-view images, while optionally incorporating auxiliary geometric priors when available. By combining global contextual reasoning with camera-aware feature representations, UniScale is able to recover the metric-scale of the scene. In robotic settings where camera intrinsics are known, they can be easily incorporated to improve performance, with additional gains obtained when camera poses are also available. This co-design enables robust, metric-aware 3D reconstruction within a single unified model. Importantly, UniScale does not require training from scratch, and leverages world priors exhibited in pre-existing models without geometric encoding strategies, making it particularly suitable for resource-constrained robotic teams. We evaluate UniScale on multiple benchmarks, demonstrating strong generalization and consistent performance across diverse environments. We will release our implementation upon acceptance.",
+      "description": "This paper presents **UniScale**, a **unified, scale-aware multi-view 3D reconstruction framework** tailored for **robotic perception**. It flexibly integrates **geometric priors** to accurately extract **environmental structure** for **vision-based robotic navigation**.",
+      "mlTag": "Vision",
+      "appTag": "Robotics",
+      "arxivUrl": "https://arxiv.org/abs/2602.23224",
+      "pdfUrl": "https://arxiv.org/pdf/2602.23224",
+      "publishedAt": "2026-02-26T17:04:36Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.23206",
+      "title": "Grasp, Slide, Roll: Comparative Analysis of Contact Modes for Tactile-Based Shape Reconstruction",
+      "authors": [
+        "Chung Hee Kim",
+        "Shivani Kamtikar",
+        "Tye Brady",
+        "Taskin Padir",
+        "Joshua Migdal"
+      ],
+      "abstract": "Tactile sensing allows robots to gather detailed geometric information about objects through physical interaction, complementing vision-based approaches. However, efficiently acquiring useful tactile data remains challenging due to the time-consuming nature of physical contact and the need to strategically choose contact locations that maximize information gain while minimizing physical interactions. This paper studies how different contact modes affect object shape reconstruction using a tactile-enabled dexterous gripper. We compare three contact interaction modes: grasp-releasing, sliding induced by finger-grazing, and palm-rolling. These contact modes are combined with an information-theoretic exploration framework that guides subsequent sampling locations using a shape completion model. Our results show that the improved tactile sensing efficiency of finger-grazing and palm-rolling translates into faster convergence in shape reconstruction, requiring 34% fewer physical interactions while improving reconstruction accuracy by 55%. We validate our approach using a UR5e robot arm equipped with an Inspire-Robots Dexterous Hand, showing robust performance across primitive object geometries.",
+      "description": "This paper conducts a **comparative analysis of contact modes** (grasp, slide, roll) for **tactile-based shape reconstruction** in robots. It investigates efficient strategies for acquiring useful **tactile data** to complement **vision-based approaches** for detailed **geometric information**.",
+      "mlTag": "Vision",
+      "appTag": "Robotics",
+      "arxivUrl": "https://arxiv.org/abs/2602.23206",
+      "pdfUrl": "https://arxiv.org/pdf/2602.23206",
+      "publishedAt": "2026-02-26T16:53:59Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.23204",
+      "title": "Motion-aware Event Suppression for Event Cameras",
+      "authors": [
+        "Roberto Pellerito",
+        "Nico Messikommer",
+        "Giovanni Cioffi",
+        "Marco Cannici",
+        "Davide Scaramuzza"
+      ],
+      "abstract": "In this work, we introduce the first framework for Motion-aware Event Suppression, which learns to filter events triggered by IMOs and ego-motion in real time. Our model jointly segments IMOs in the current event stream while predicting their future motion, enabling anticipatory suppression of dynamic events before they occur. Our lightweight architecture achieves 173 Hz inference on consumer-grade GPUs with less than 1 GB of memory usage, outperforming previous state-of-the-art methods on the challenging EVIMO benchmark by 67\\% in segmentation accuracy while operating at a 53\\% higher inference rate. Moreover, we demonstrate significant benefits for downstream applications: our method accelerates Vision Transformer inference by 83\\% via token pruning and improves event-based visual odometry accuracy, reducing Absolute Trajectory Error (ATE) by 13\\%.",
+      "description": "This work introduces the first framework for **Motion-aware Event Suppression** for **event cameras**, filtering events triggered by **Independent Moving Objects (IMOs)** and **ego-motion** in real time. The model jointly segments IMOs and predicts their future motion, enabling **anticipatory suppression**.",
+      "mlTag": "Vision",
+      "appTag": "General",
+      "arxivUrl": "https://arxiv.org/abs/2602.23204",
+      "pdfUrl": "https://arxiv.org/pdf/2602.23204",
+      "publishedAt": "2026-02-26T16:53:36Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    },
+    {
+      "id": "2602.23172",
+      "title": "Latent Gaussian Splatting for 4D Panoptic Occupancy Tracking",
+      "authors": [
+        "Maximilian Luz",
+        "Rohit Mohan",
+        "Thomas Nürnberg",
+        "Yakov Miron",
+        "Daniele Cattaneo",
+        "Abhinav Valada"
+      ],
+      "abstract": "Capturing 4D spatiotemporal surroundings is crucial for the safe and reliable operation of robots in dynamic environments. However, most existing methods address only one side of the problem: they either provide coarse geometric tracking via bounding boxes, or detailed 3D structures like voxel-based occupancy that lack explicit temporal association. In this work, we present Latent Gaussian Splatting for 4D Panoptic Occupancy Tracking (LaGS) that advances spatiotemporal scene understanding in a holistic direction. Our approach incorporates camera-based end-to-end tracking with mask-based multi-view panoptic occupancy prediction, and addresses the key challenge of efficiently aggregating multi-view information into 3D voxel grids via a novel latent Gaussian splatting approach. Specifically, we first fuse observations into 3D Gaussians that serve as a sparse point-centric latent representation of the 3D scene, and then splat the aggregated features onto a 3D voxel grid that is decoded by a mask-based segmentation head. We evaluate LaGS on the Occ3D nuScenes and Waymo datasets, achieving state-of-the-art performance for 4D panoptic occupancy tracking. We make our code available at https://lags.cs.uni-freiburg.de/.",
+      "description": "This paper introduces **Latent Gaussian Splatting** for **4D Panoptic Occupancy Tracking**, which is crucial for the safe operation of **robots in dynamic environments**. This method captures detailed **4D spatiotemporal surroundings**, providing fine-grained 3D structures and tracking capabilities.",
+      "mlTag": "Vision",
+      "appTag": "Robotics",
+      "arxivUrl": "https://arxiv.org/abs/2602.23172",
+      "pdfUrl": "https://arxiv.org/pdf/2602.23172",
+      "publishedAt": "2026-02-26T16:34:49Z",
+      "mediaUrls": [],
+      "source": "arxiv"
+    }
+  ]
+}

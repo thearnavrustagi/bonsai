@@ -1,0 +1,234 @@
+{
+  "cacheDate": "2026-02-28",
+  "data": [
+    {
+      "id": "2602.23361",
+      "title": "VGG-T^3: Offline Feed-Forward 3D Reconstruction at Scale",
+      "authors": [
+        "Sven Elflein",
+        "Ruilong Li",
+        "Sérgio Agostinho",
+        "Zan Gojcic",
+        "Laura Leal-Taixé",
+        "Qunjie Zhou",
+        "Aljosa Osep"
+      ],
+      "abstract": "",
+      "description": "This paper likely introduces **VGG-T^3**, a method for **offline feed-forward 3D reconstruction**. It aims to achieve this at **scale**, suggesting advancements in efficiency or handling large datasets for creating 3D models from images.",
+      "mlTag": "Vision",
+      "appTag": "General",
+      "arxivUrl": "https://arxiv.org/abs/2602.23361",
+      "pdfUrl": "https://arxiv.org/pdf/2602.23361",
+      "publishedAt": "2026-02-26T18:59:33.000Z",
+      "mediaUrls": [
+        "https://cdn-uploads.huggingface.co/production/uploads/692da82ab884a1ba56270557/MfAsycfptzzlmO0_Y7TYp.gif"
+      ],
+      "thumbnail": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2602.23361.png",
+      "source": "huggingface"
+    },
+    {
+      "id": "2602.21420",
+      "title": "Overconfident Errors Need Stronger Correction: Asymmetric Confidence Penalties for Reinforcement Learning",
+      "authors": [
+        "Yuanda Xu",
+        "Hejian Sang",
+        "Zhengze Zhou",
+        "Ran He",
+        "Zhipeng Wang"
+      ],
+      "abstract": "",
+      "description": "This work proposes **asymmetric confidence penalties** for **reinforcement learning** algorithms. The core idea is that **overconfident errors** should receive stronger correction, aiming to improve the robustness and reliability of learned policies.",
+      "mlTag": "RL",
+      "appTag": "General",
+      "arxivUrl": "https://arxiv.org/abs/2602.21420",
+      "pdfUrl": "https://arxiv.org/pdf/2602.21420",
+      "publishedAt": "2026-02-24T22:46:43.000Z",
+      "mediaUrls": [],
+      "thumbnail": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2602.21420.png",
+      "source": "huggingface"
+    },
+    {
+      "id": "2602.20423",
+      "title": "MedCLIPSeg: Probabilistic Vision-Language Adaptation for Data-Efficient and Generalizable Medical Image Segmentation",
+      "authors": [
+        "Taha Koleilat",
+        "Hojat Asgariandehkordi",
+        "Omid Nejati Manzari",
+        "Berardino Barile",
+        "Yiming Xiao",
+        "Hassan Rivaz"
+      ],
+      "abstract": "",
+      "description": "**MedCLIPSeg** introduces a method for **probabilistic vision-language adaptation** specifically for **medical image segmentation**. It focuses on achieving **data-efficient** and **generalizable** segmentation models, which is crucial for real-world healthcare applications with limited labeled data.",
+      "mlTag": "Vision",
+      "appTag": "Healthcare",
+      "arxivUrl": "https://arxiv.org/abs/2602.20423",
+      "pdfUrl": "https://arxiv.org/pdf/2602.20423",
+      "publishedAt": "2026-02-23T23:46:05.000Z",
+      "mediaUrls": [],
+      "thumbnail": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2602.20423.png",
+      "source": "huggingface"
+    },
+    {
+      "id": "2602.22953",
+      "title": "General Agent Evaluation",
+      "authors": [
+        "Elron Bandel",
+        "Asaf Yehudai",
+        "Lilach Eden",
+        "Yehoshua Sagron",
+        "Yotam Perlitz",
+        "Elad Venezian",
+        "Natalia Razinkov",
+        "Natan Ergas",
+        "Shlomit Shachor Ifergan",
+        "Segev Shlomov",
+        "Michal Jacovi",
+        "Leshem Choshen",
+        "Liat Ein-Dor",
+        "Yoav Katz",
+        "Michal Shmueli-Scheuer"
+      ],
+      "abstract": "",
+      "description": "This paper focuses on the crucial task of **general agent evaluation**. It likely proposes new frameworks or metrics to assess the capabilities and performance of **AI agents** across diverse tasks and environments.",
+      "mlTag": "RL",
+      "appTag": "General",
+      "arxivUrl": "https://arxiv.org/abs/2602.22953",
+      "pdfUrl": "https://arxiv.org/pdf/2602.22953",
+      "publishedAt": "2026-02-26T12:48:02.000Z",
+      "mediaUrls": [],
+      "thumbnail": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2602.22953.png",
+      "source": "huggingface"
+    },
+    {
+      "id": "2602.23339",
+      "title": "Retrieve and Segment: Are a Few Examples Enough to Bridge the Supervision Gap in Open-Vocabulary Segmentation?",
+      "authors": [
+        "Tilemachos Aravanis",
+        "Vladan Stojnić",
+        "Bill Psomas",
+        "Nikos Komodakis",
+        "Giorgos Tolias"
+      ],
+      "abstract": "",
+      "description": "This research explores whether **retrieval-based methods** can bridge the **supervision gap** in **open-vocabulary segmentation**. It investigates if **few examples** are sufficient to achieve robust segmentation for novel categories, significantly reducing annotation efforts.",
+      "mlTag": "Vision",
+      "appTag": "General",
+      "arxivUrl": "https://arxiv.org/abs/2602.23339",
+      "pdfUrl": "https://arxiv.org/pdf/2602.23339",
+      "publishedAt": "2026-02-26T18:45:33.000Z",
+      "mediaUrls": [],
+      "thumbnail": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2602.23339.png",
+      "source": "huggingface"
+    },
+    {
+      "id": "2602.20332",
+      "title": "No One Size Fits All: QueryBandits for Hallucination Mitigation",
+      "authors": [
+        "Nicole Cho",
+        "William Watson",
+        "Alec Koppel",
+        "Sumitra Ganesh",
+        "Manuela Veloso"
+      ],
+      "abstract": "",
+      "description": "This paper introduces **QueryBandits**, a novel approach for **hallucination mitigation** in language models. It proposes that no single strategy fits all queries, suggesting an adaptive method to reduce **generated misinformation** and improve factual accuracy.",
+      "mlTag": "LLMs",
+      "appTag": "NLP",
+      "arxivUrl": "https://arxiv.org/abs/2602.20332",
+      "pdfUrl": "https://arxiv.org/pdf/2602.20332",
+      "publishedAt": "2026-02-23T20:28:48.000Z",
+      "mediaUrls": [],
+      "thumbnail": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2602.20332.png",
+      "source": "huggingface"
+    },
+    {
+      "id": "2602.20300",
+      "title": "What Makes a Good Query? Measuring the Impact of Human-Confusing Linguistic Features on LLM Performance",
+      "authors": [
+        "William Watson",
+        "Nicole Cho",
+        "Sumitra Ganesh",
+        "Manuela Veloso"
+      ],
+      "abstract": "",
+      "description": "This research investigates the characteristics of **effective queries** for **Large Language Models (LLMs)**. It measures the impact of **human-confusing linguistic features** on **LLM performance**, aiming to understand how query phrasing affects model outputs and develop better prompting strategies.",
+      "mlTag": "LLMs",
+      "appTag": "NLP",
+      "arxivUrl": "https://arxiv.org/abs/2602.20300",
+      "pdfUrl": "https://arxiv.org/pdf/2602.20300",
+      "publishedAt": "2026-02-23T19:30:08.000Z",
+      "mediaUrls": [],
+      "thumbnail": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2602.20300.png",
+      "source": "huggingface"
+    },
+    {
+      "id": "2602.18253",
+      "title": "MEG-to-MEG Transfer Learning and Cross-Task Speech/Silence Detection with Limited Data",
+      "authors": [
+        "Xabier de Zuazo",
+        "Vincenzo Verbeni",
+        "Eva Navas",
+        "Ibon Saratxaga",
+        "Mathieu Bourguignon",
+        "Nicola Molinaro"
+      ],
+      "abstract": "",
+      "description": "This paper explores **MEG-to-MEG transfer learning** for **cross-task speech/silence detection**, particularly in **limited data** scenarios. The work aims to improve the robustness and generalization of models for processing magnetoencephalography (MEG) signals.",
+      "mlTag": "Data",
+      "appTag": "NLP",
+      "arxivUrl": "https://arxiv.org/abs/2602.18253",
+      "pdfUrl": "https://arxiv.org/pdf/2602.18253",
+      "publishedAt": "2026-02-20T14:39:50.000Z",
+      "mediaUrls": [],
+      "thumbnail": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2602.18253.png",
+      "source": "huggingface"
+    },
+    {
+      "id": "2602.22045",
+      "title": "DLT-Corpus: A Large-Scale Text Collection for the Distributed Ledger Technology Domain",
+      "authors": [
+        "Walter Hernandez Cruz",
+        "Peter Devine",
+        "Nikhil Vadgama",
+        "Paolo Tasca",
+        "Jiahua Xu"
+      ],
+      "abstract": "",
+      "description": "The **DLT-Corpus** introduces a **large-scale text collection** specifically curated for the **Distributed Ledger Technology (DLT) domain**. This valuable **dataset** will facilitate research and development in NLP tasks related to blockchain, cryptocurrencies, and other decentralized technologies.",
+      "mlTag": "Data",
+      "appTag": "Other",
+      "arxivUrl": "https://arxiv.org/abs/2602.22045",
+      "pdfUrl": "https://arxiv.org/pdf/2602.22045",
+      "publishedAt": "2026-02-25T15:53:41.000Z",
+      "mediaUrls": [],
+      "thumbnail": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2602.22045.png",
+      "source": "huggingface"
+    },
+    {
+      "id": "2602.22638",
+      "title": "MobilityBench: A Benchmark for Evaluating Route-Planning Agents in Real-World Mobility Scenarios",
+      "authors": [
+        "Zhiheng Song",
+        "Jingshuai Zhang",
+        "Chuan Qin",
+        "Chao Wang",
+        "Chao Chen",
+        "Longfei Xu",
+        "Kaikui Liu",
+        "Xiangxiang Chu",
+        "Hengshu Zhu"
+      ],
+      "abstract": "",
+      "description": "**MobilityBench** presents a new **benchmark** designed for evaluating **route-planning agents** in **real-world mobility scenarios**. This benchmark provides a standardized platform to assess the performance and robustness of AI agents in complex, dynamic transportation environments.",
+      "mlTag": "RL",
+      "appTag": "Robotics",
+      "arxivUrl": "https://arxiv.org/abs/2602.22638",
+      "pdfUrl": "https://arxiv.org/pdf/2602.22638",
+      "publishedAt": "2026-02-26T05:39:38.000Z",
+      "mediaUrls": [],
+      "thumbnail": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2602.22638.png",
+      "source": "huggingface"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "cacheDate": "2026-02-28",
+  "data": "## Gaps & Issues\n*   **AI agents** show brittle **long-horizon planning** and lack robust evaluation (\"MobilityBench\"), preventing real-world application.\n*   **Multimodal generation** struggles with **consistency** and controllable reasoning; latent space imagination fails to produce grounded logic.\n*   Scaling **world models** for agents creates critical inference bottlenecks in memory and compute (\"DualPath\", \"SeaCache\").\n\n## Research Opportunities\n*   Fuse **memory-augmented LLMs** with physics-aware **world models** (\"GeoWorld\") for grounded agents with generalizable dynamic planning.\n*   Integrate **causal diffusion models** to enforce physical plausibility and logical coherence in generated audio-visual scenes.\n*   Develop **probabilistic adaptation** (\"MedCLIPSeg\") to specialize foundation models for high-stakes domains using sparse expert data."
+}

@@ -1,0 +1,4 @@
+{
+  "cacheDate": "2026-02-28",
+  "data": "## Gaps & Issues\n*   Models lack **real-world grounding** and **causal reasoning**, failing on evidence-based tasks where pragmatic biases defeat scale.\n*   **Algorithm-hardware co-design** is fragmented. Post-hoc optimizations for memory/hardware fail to bridge the efficiency gap on specialized devices.\n*   **Uncertainty quantification** is brittle, failing to disentangle sources in complex dynamic systems like federated and multi-agent environments.\n\n## Research Opportunities\n*   Build **causal agents** fusing **parametric memory** with mechanistic models for verifiable reasoning in science and robotics.\n*   Unify **omni-modal grounding** via **optimal transport**, creating shared representations for text, 3D scenes, and spatio-temporal sensor streams.\n*   Develop **differentiable co-design**, jointly optimizing models, losses, and hardware primitives for true system-level efficiency."
+}
