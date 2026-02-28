@@ -51,7 +51,9 @@ function useCleanedContent(rawHtml: string) {
     el.querySelectorAll("img").forEach((img) => {
       const src = img.src || "";
       if (
-        /beehiiv|therundown.*logo|rundown.*brand|pixel|track|beacon/i.test(src)
+        /beehiiv\.com.*(?:logo|icon|brand|pixel|track)/i.test(src) ||
+        /therundown.*(?:logo|brand|icon)/i.test(src) ||
+        /pixel|track|beacon/i.test(src)
       ) {
         img.remove();
         return;
