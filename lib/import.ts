@@ -45,7 +45,7 @@ async function resolvePaperInfo(paperId: string): Promise<FetchedPaper | null> {
         authors: hfPaper.paper.authors.map((a) => a.name),
         arxivUrl: `https://arxiv.org/abs/${hfPaper.paper.id}`,
         pdfUrl: `https://arxiv.org/pdf/${hfPaper.paper.id}`,
-        upvotes: hfPaper.numUpvotes,
+        upvotes: hfPaper.numUpvotes ?? 0,
         publishedAt: hfPaper.paper.publishedAt,
         mediaUrls: hfPaper.mediaUrls || hfPaper.paper.mediaUrls || [],
         thumbnail: hfPaper.thumbnail,
@@ -89,9 +89,15 @@ async function resolvePaperInfo(paperId: string): Promise<FetchedPaper | null> {
 
 /**
  * Import a paper by ID: resolve metadata, download PDF, summarize via Gemini,
- * and persist to file storage. Returns the saved PaperSummary.
+ * and persist to storage. Returns cached version if already imported.
  */
 export async function importPaper(paperId: string): Promise<PaperSummary> {
+  const existing = await findPaperById(paperId);
+  if (existing) {
+    log.info("Paper already in DB, skipping import", { id: paperId });
+    return existing.paper;
+  }
+
   const date = todayDate();
 
   let paperInfo = await resolvePaperInfo(paperId);

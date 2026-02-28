@@ -44,7 +44,7 @@ export async function fetchDailyPapers(limit = 10): Promise<FetchedPaper[]> {
     authors: item.paper.authors.map((a) => a.name),
     arxivUrl: `https://arxiv.org/abs/${item.paper.id}`,
     pdfUrl: `https://arxiv.org/pdf/${item.paper.id}`,
-    upvotes: item.numUpvotes,
+    upvotes: item.numUpvotes ?? 0,
     publishedAt: item.paper.publishedAt,
     mediaUrls: item.mediaUrls || item.paper.mediaUrls || [],
     thumbnail: item.thumbnail,

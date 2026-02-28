@@ -40,7 +40,8 @@ async function generateMarketTrends(titles: string[]): Promise<string> {
   const genAI = new GoogleGenerativeAI(apiKey);
   const model = genAI.getGenerativeModel({
     model: "gemini-2.5-flash",
-    generationConfig: { maxOutputTokens: 4096 },
+  }, {
+    timeout: 120_000,
   });
 
   const numberedTitles = titles.map((t, i) => `${i + 1}. ${t}`).join("\n");

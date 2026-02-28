@@ -47,9 +47,10 @@ export async function summarizePaper(
   const model = genAI.getGenerativeModel({
     model: "gemini-2.5-pro",
     generationConfig: {
-      maxOutputTokens: 65536,
       responseMimeType: "application/json",
     },
+  }, {
+    timeout: 300_000,
   });
 
   const pdfBuffer = await fs.readFile(pdfPath);
@@ -86,7 +87,14 @@ export async function summarizePaper(
     if (!jsonMatch) {
       throw new Error("Failed to extract JSON from Gemini response");
     }
-    parsed = JSON.parse(jsonMatch[0]);
+    try {
+      parsed = JSON.parse(jsonMatch[0]);
+    } catch {
+      const sanitized = jsonMatch[0]
+        .replace(/(?<!\\)\\(?!["\\/bfnrtu])/g, "\\\\")
+        .replace(/[\x00-\x1f]/g, (ch) => `\\u${ch.charCodeAt(0).toString(16).padStart(4, "0")}`);
+      parsed = JSON.parse(sanitized);
+    }
   }
 
   return {
@@ -121,7 +129,8 @@ export async function generateTrends(
   const genAI = new GoogleGenerativeAI(apiKey);
   const model = genAI.getGenerativeModel({
     model: "gemini-2.5-pro",
-    generationConfig: { maxOutputTokens: 8192 },
+  }, {
+    timeout: 120_000,
   });
 
   const numberedTitles = titles.map((t, i) => `${i + 1}. ${t}`).join("\n");
@@ -154,7 +163,8 @@ export async function generateDevPulse(
   const genAI = new GoogleGenerativeAI(apiKey);
   const model = genAI.getGenerativeModel({
     model: "gemini-2.5-flash",
-    generationConfig: { maxOutputTokens: 4096 },
+  }, {
+    timeout: 120_000,
   });
 
   const numberedTitles = titles.map((t, i) => `${i + 1}. ${t}`).join("\n");
@@ -195,9 +205,10 @@ export async function batchGenerateTags(
   const model = genAI.getGenerativeModel({
     model: "gemini-2.5-flash",
     generationConfig: {
-      maxOutputTokens: 8192,
       responseMimeType: "application/json",
     },
+  }, {
+    timeout: 120_000,
   });
 
   const papersText = papers
