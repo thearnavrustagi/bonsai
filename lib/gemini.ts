@@ -118,7 +118,7 @@ export async function summarizePaper(
 }
 
 export async function generateTrends(
-  titles: string[],
+  items: { title: string; abstract: string }[],
   topicLabel: string,
   subtopicLabel: string,
   range: string
@@ -133,9 +133,14 @@ export async function generateTrends(
     timeout: 120_000,
   });
 
-  const numberedTitles = titles.map((t, i) => `${i + 1}. ${t}`).join("\n");
+  const numberedItems = items
+    .map((item, i) => {
+      const base = `${i + 1}. ${item.title}`;
+      return item.abstract ? `${base}\n   Abstract: ${item.abstract}` : base;
+    })
+    .join("\n");
 
-  const prompt = `You are a research trend analyst. Given ${titles.length} recent paper titles from ${topicLabel}/${subtopicLabel} (${range}), write a sharp analysis in **100 words or fewer**. No filler, no preamble.
+  const prompt = `You are a research trend analyst. Given ${items.length} recent papers (with titles and abstracts) from ${topicLabel}/${subtopicLabel} (${range}), write a sharp analysis in **100 words or fewer**. No filler, no preamble.
 
 Structure (use these exact headers with ##):
 
@@ -147,15 +152,15 @@ Structure (use these exact headers with ##):
 
 **Bold** key terms. Be direct and technical. Every word must earn its place.
 
-Titles:
-${numberedTitles}`;
+Papers:
+${numberedItems}`;
 
   const result = await model.generateContent([{ text: prompt }]);
   return result.response.text();
 }
 
 export async function generateDevPulse(
-  titles: string[]
+  items: { title: string; snippet: string }[]
 ): Promise<string> {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) throw new Error("GEMINI_API_KEY not set");
@@ -167,9 +172,14 @@ export async function generateDevPulse(
     timeout: 120_000,
   });
 
-  const numberedTitles = titles.map((t, i) => `${i + 1}. ${t}`).join("\n");
+  const numberedItems = items
+    .map((item, i) => {
+      const base = `${i + 1}. ${item.title}`;
+      return item.snippet ? `${base}\n   Summary: ${item.snippet}` : base;
+    })
+    .join("\n");
 
-  const prompt = `You are an AI engineering analyst writing for developers. Given ${titles.length} recent blog post and newsletter titles from the AI engineering space, write a sharp analysis in **100 words or fewer**. No filler, no preamble.
+  const prompt = `You are an AI engineering analyst writing for developers. Given ${items.length} recent blog posts and newsletter articles (with titles and summaries) from the AI engineering space, write a sharp analysis in **100 words or fewer**. No filler, no preamble.
 
 Structure (use these exact headers with ##):
 
@@ -181,8 +191,8 @@ Structure (use these exact headers with ##):
 
 **Bold** key terms. Be direct and practical. Write for builders, not spectators.
 
-Titles:
-${numberedTitles}`;
+Articles:
+${numberedItems}`;
 
   const result = await model.generateContent([{ text: prompt }]);
   return result.response.text();

@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCached, setCache } from "@/lib/storage";
 import { generateTrends } from "@/lib/gemini";
-import { fetchArxivTitles } from "@/lib/arxiv";
-import { fetchDailyPaperTitles } from "@/lib/huggingface";
+import { fetchArxivItems } from "@/lib/arxiv";
+import { fetchDailyPaperItems } from "@/lib/huggingface";
 import {
   isHuggingFaceSource,
   getArxivCategoriesForSubtopic,
@@ -21,35 +21,40 @@ export async function GET(request: NextRequest) {
 
   const cacheKey = `trends/${topic}-${subtopic}-${range}`;
 
+  const refresh = searchParams.get("refresh") === "true";
+
   try {
-    const cached = await getCached<string>(cacheKey);
-    if (cached) {
-      return NextResponse.json({ content: cached });
+    if (!refresh) {
+      const cached = await getCached<string>(cacheKey);
+      if (cached) {
+        return NextResponse.json({ content: cached });
+      }
     }
 
-    let titles: string[];
+    let items: { title: string; abstract: string }[];
 
     if (isHuggingFaceSource(topic, subtopic)) {
-      titles = await fetchDailyPaperTitles(50, range);
+      items = await fetchDailyPaperItems(50, range);
     } else {
       const categories = getArxivCategoriesForSubtopic(topic, subtopic);
       if (categories.length === 0) {
         return NextResponse.json({ content: "" });
       }
-      titles = await fetchArxivTitles(categories, 50, range);
+      items = await fetchArxivItems(categories, 50, range);
     }
 
-    if (titles.length === 0) {
+    if (items.length === 0) {
       return NextResponse.json({ content: "No papers found for this period." });
     }
 
     const topicLabel = getTopicLabel(topic);
     const subtopicLabel = getSubtopicLabel(topic, subtopic);
-    const content = await generateTrends(titles, topicLabel, subtopicLabel, range);
+    const content = await generateTrends(items, topicLabel, subtopicLabel, range);
 
     await setCache(cacheKey, content);
 
-    return NextResponse.json({ content });
+    const headers = refresh ? { "Cache-Control": "no-store, no-cache, must-revalidate" } : undefined;
+    return NextResponse.json({ content }, { headers });
   } catch (err) {
     console.error("Trends API error:", err);
     return NextResponse.json(

@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import Parser from "rss-parser";
 import { getCached, setCache } from "@/lib/storage";
 import { generateDevPulse } from "@/lib/gemini";
@@ -16,44 +16,61 @@ const rundownParser = new Parser({
   customFields: { item: [["dc:creator", "creator"]] },
 });
 
-async function fetchTitlesFromFeed(
+interface FeedItem {
+  title: string;
+  snippet: string;
+}
+
+async function fetchItemsFromFeed(
   parser: Parser,
   url: string,
   limit: number
-): Promise<string[]> {
+): Promise<FeedItem[]> {
   try {
     const feed = await parser.parseURL(url);
     return (feed.items ?? [])
       .slice(0, limit)
-      .map((item) => item.title || "")
-      .filter(Boolean);
+      .filter((item) => item.title)
+      .map((item) => {
+        const plainText = (item.contentSnippet || item.summary || "").replace(/<[^>]+>/g, "");
+        return {
+          title: item.title!,
+          snippet: plainText.slice(0, 200).trim(),
+        };
+      });
   } catch {
     return [];
   }
 }
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const { searchParams } = new URL(request.url);
+  const refresh = searchParams.get("refresh") === "true";
+
   try {
-    const cached = await getCached<string>(CACHE_KEY);
-    if (cached) {
-      return NextResponse.json({ content: cached });
+    if (!refresh) {
+      const cached = await getCached<string>(CACHE_KEY);
+      if (cached) {
+        return NextResponse.json({ content: cached });
+      }
     }
 
-    const [blogTitles, rundownTitles] = await Promise.all([
-      fetchTitlesFromFeed(simonParser, SIMON_FEED_URL, 15),
-      fetchTitlesFromFeed(rundownParser, RUNDOWN_FEED_URL, 10),
+    const [blogItems, rundownItems] = await Promise.all([
+      fetchItemsFromFeed(simonParser, SIMON_FEED_URL, 15),
+      fetchItemsFromFeed(rundownParser, RUNDOWN_FEED_URL, 10),
     ]);
 
-    const allTitles = [...blogTitles, ...rundownTitles];
+    const allItems = [...blogItems, ...rundownItems];
 
-    if (allTitles.length === 0) {
+    if (allItems.length === 0) {
       return NextResponse.json({ content: "" });
     }
 
-    const content = await generateDevPulse(allTitles);
+    const content = await generateDevPulse(allItems);
     await setCache(CACHE_KEY, content);
 
-    return NextResponse.json({ content });
+    const headers = refresh ? { "Cache-Control": "no-store, no-cache, must-revalidate" } : undefined;
+    return NextResponse.json({ content }, { headers });
   } catch (err) {
     console.error("Dev Pulse API error:", err);
     return NextResponse.json(

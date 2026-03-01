@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { TrendingUp, Sparkles } from "lucide-react";
+import { TrendingUp, RefreshCw } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { type TopicId, getTopicLabel } from "@/lib/topics";
 
@@ -19,12 +19,11 @@ export function TrendsCard({ topicId, subtopicId }: TrendsCardProps) {
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(true);
 
-  const fetchTrends = useCallback(async () => {
+  const fetchTrends = useCallback(async (refresh = false) => {
     setLoading(true);
     try {
-      const res = await fetch(
-        `/api/trends?topic=${topicId}&subtopic=${subtopicId}&range=${range}`
-      );
+      const url = `/api/trends?topic=${topicId}&subtopic=${subtopicId}&range=${range}${refresh ? `&refresh=true&t=${Date.now()}` : ""}`;
+      const res = await fetch(url, refresh ? { cache: "no-store" } : undefined);
       const data = await res.json();
       setContent(data.content || "");
     } catch {
@@ -65,7 +64,14 @@ export function TrendsCard({ topicId, subtopicId }: TrendsCardProps) {
               Current Trend in {topicLabel} Research
             </h2>
           </div>
-          <Sparkles className="size-3.5 text-gold/30 shrink-0 mt-1" />
+          <button
+            onClick={() => fetchTrends(true)}
+            disabled={loading}
+            className="p-1.5 rounded-lg text-gold/30 hover:text-gold hover:bg-gold/10 transition-all duration-200 disabled:opacity-50 shrink-0"
+            title="Refresh trends"
+          >
+            <RefreshCw className={`size-3.5 ${loading ? "animate-spin" : ""}`} />
+          </button>
         </div>
 
         {/* Range toggles */}

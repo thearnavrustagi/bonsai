@@ -32,7 +32,21 @@ export interface FetchedPaper {
 }
 
 export async function fetchDailyPapers(limit = 10): Promise<FetchedPaper[]> {
-  const { data } = await axios.get<HFPaper[]>(HF_DAILY_PAPERS_URL);
+  let data: HFPaper[] = [];
+
+  for (let daysBack = 0; daysBack < 7; daysBack++) {
+    const date = new Date(Date.now() - daysBack * 86400000).toISOString().split("T")[0];
+    console.log(`[huggingface] Trying date=${date} (daysBack=${daysBack})`);
+    const res = await axios.get<HFPaper[]>(HF_DAILY_PAPERS_URL, {
+      params: { date },
+      timeout: 10000,
+    });
+    console.log(`[huggingface] API returned ${res.data.length} papers for ${date}`);
+    if (res.data.length > 0) {
+      data = res.data;
+      break;
+    }
+  }
 
   const sorted = data
     .sort((a, b) => b.numUpvotes - a.numUpvotes)
@@ -91,6 +105,30 @@ export async function fetchDailyPaperTitles(
   }
 
   return titles;
+}
+
+export async function fetchDailyPaperItems(
+  limit: number,
+  dateRange: "day" | "week" | "month"
+): Promise<{ title: string; abstract: string }[]> {
+  const days = dateRange === "day" ? 1 : dateRange === "week" ? 7 : 30;
+  const dates = Array.from({ length: days }, (_, i) => dateNDaysAgo(i));
+
+  const results = await Promise.all(dates.map(fetchForDate));
+  const seen = new Set<string>();
+  const items: { title: string; abstract: string }[] = [];
+
+  for (const batch of results) {
+    for (const item of batch) {
+      if (!seen.has(item.paper.id)) {
+        seen.add(item.paper.id);
+        items.push({ title: item.title || item.paper.title, abstract: "" });
+        if (items.length >= limit) return items;
+      }
+    }
+  }
+
+  return items;
 }
 
 export async function downloadPdf(pdfUrl: string, paperId: string): Promise<string> {

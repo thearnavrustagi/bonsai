@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { Plus, Library, ArrowRight } from "lucide-react";
+import { Plus, Library, ArrowRight, RefreshCw } from "lucide-react";
 import { Masthead } from "@/components/masthead";
 import { BlogSection } from "@/components/blog-section";
 import { BusinessSection } from "@/components/business-section";
@@ -26,13 +26,27 @@ export default function Home() {
   const [selectedSubtopic, setSelectedSubtopic] = useState("everything");
   const [activeTab, setActiveTab] = useState<Tab>("research");
 
-  const fetchFeed = useCallback(async (topic: TopicId, subtopic: string) => {
+  const fetchFeed = useCallback(async (topic: TopicId, subtopic: string, refresh = false) => {
+    console.log(`[fetchFeed] called: topic=${topic} subtopic=${subtopic} refresh=${refresh}`);
     setLoading(true);
     try {
-      const res = await fetch(`/api/feed?topic=${topic}&subtopic=${subtopic}`);
+      const url = `/api/feed?topic=${topic}&subtopic=${subtopic}${refresh ? `&refresh=true&t=${Date.now()}` : ""}`;
+      console.log(`[fetchFeed] fetching: ${url}`);
+      const res = await fetch(url, { cache: "no-store" });
+      console.log(`[fetchFeed] response status: ${res.status}`);
       const data = await res.json();
       const feedPapers: FeedPaper[] = data.papers || [];
-      setPapers(feedPapers);
+      console.log(`[fetchFeed] received ${feedPapers.length} papers:`, feedPapers.map(p => p.id));
+
+      if (data.error) {
+        console.error(`[fetchFeed] API returned error:`, data.error);
+      }
+
+      if (feedPapers.length > 0 || !refresh) {
+        setPapers(feedPapers);
+      } else {
+        console.log(`[fetchFeed] refresh returned empty, keeping existing papers`);
+      }
 
       if (feedPapers.length > 0) {
         fetch("/api/warm-papers", {
@@ -41,10 +55,12 @@ export default function Home() {
           body: JSON.stringify({ paperIds: feedPapers.map((p) => p.id) }),
         }).catch(() => {});
       }
-    } catch {
+    } catch (err) {
+      console.error(`[fetchFeed] CAUGHT ERROR:`, err);
       setPapers([]);
     } finally {
       setLoading(false);
+      console.log(`[fetchFeed] done, loading=false`);
     }
   }, []);
 
@@ -80,7 +96,15 @@ export default function Home() {
 
             {/* Papers Section */}
             <section className="mt-6">
-              <div className="mb-5 flex items-center justify-end py-3">
+              <div className="mb-5 flex items-center justify-between py-3">
+                <button
+                  onClick={() => fetchFeed(selectedTopic, selectedSubtopic, true)}
+                  disabled={loading}
+                  className="inline-flex items-center gap-2 font-[family-name:var(--font-dm-sans)] font-semibold tracking-wider uppercase text-lg px-5 py-2.5 rounded-full bg-warm-white/5 border border-warm-white/10 text-beige-dim/70 hover:bg-warm-white/10 hover:border-warm-white/20 hover:text-beige transition-all duration-200 disabled:opacity-50"
+                >
+                  <RefreshCw className={`size-4 ${loading ? "animate-spin" : ""}`} />
+                  <span>Refresh</span>
+                </button>
                 <button
                   onClick={() => setBrowseOpen(true)}
                   className="inline-flex items-center gap-2 font-[family-name:var(--font-dm-sans)] font-semibold tracking-wider uppercase text-lg px-5 py-2.5 rounded-full bg-gold/10 border border-gold/20 text-gold hover:bg-gold/20 hover:border-gold/35 transition-all duration-200"

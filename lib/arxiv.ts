@@ -198,3 +198,15 @@ export async function fetchArxivTitles(
   const papers = await fetchArxivPapers(categories, maxResults, dateRange);
   return papers.map((p) => p.title);
 }
+
+export async function fetchArxivItems(
+  categories: string[],
+  maxResults: number,
+  dateRange: "day" | "week" | "month"
+): Promise<{ title: string; abstract: string }[]> {
+  const papers = await fetchArxivPapers(categories, maxResults, dateRange);
+  return papers.map((p) => ({
+    title: p.title,
+    abstract: p.abstract.slice(0, 200).trim(),
+  }));
+}

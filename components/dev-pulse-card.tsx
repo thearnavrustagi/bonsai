@@ -1,29 +1,32 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { Terminal, Sparkles } from "lucide-react";
+import { Terminal, RefreshCw } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export function DevPulseCard() {
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    async function fetchPulse() {
-      try {
-        const res = await fetch("/api/dev-pulse");
-        const data = await res.json();
-        setContent(data.content || "");
-      } catch {
-        setContent("");
-      } finally {
-        setLoading(false);
-      }
+  const fetchPulse = useCallback(async (refresh = false) => {
+    setLoading(true);
+    try {
+      const url = `/api/dev-pulse${refresh ? `?refresh=true&t=${Date.now()}` : ""}`;
+      const res = await fetch(url, refresh ? { cache: "no-store" } : undefined);
+      const data = await res.json();
+      setContent(data.content || "");
+    } catch {
+      setContent("");
+    } finally {
+      setLoading(false);
     }
-    fetchPulse();
   }, []);
+
+  useEffect(() => {
+    fetchPulse();
+  }, [fetchPulse]);
 
   return (
     <div className="relative mt-6 rounded-2xl overflow-hidden border border-divider/30">
@@ -44,7 +47,14 @@ export function DevPulseCard() {
               Dev Pulse
             </h2>
           </div>
-          <Sparkles className="size-3.5 text-simon-purple/30 shrink-0 mt-1" />
+          <button
+            onClick={() => fetchPulse(true)}
+            disabled={loading}
+            className="p-1.5 rounded-lg text-simon-purple/30 hover:text-simon-purple-light hover:bg-simon-purple/10 transition-all duration-200 disabled:opacity-50 shrink-0"
+            title="Refresh dev pulse"
+          >
+            <RefreshCw className={`size-3.5 ${loading ? "animate-spin" : ""}`} />
+          </button>
         </div>
 
         {loading ? (

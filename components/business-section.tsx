@@ -5,7 +5,7 @@ import {
   TrendingUp,
   TrendingDown,
   ExternalLink,
-  Sparkles,
+  RefreshCw,
   Newspaper,
   Zap,
   Clock,
@@ -144,9 +144,11 @@ function StockTicker({ quotes }: { quotes: StockQuote[] }) {
 function MarketTrendsCard({
   content,
   loading,
+  onRefresh,
 }: {
   content: string;
   loading: boolean;
+  onRefresh: () => void;
 }) {
   return (
     <div className="relative rounded-2xl overflow-hidden border border-emerald-500/15 mb-6">
@@ -169,7 +171,14 @@ function MarketTrendsCard({
               Market Trends in AI
             </h2>
           </div>
-          <Sparkles className="size-3.5 text-emerald-400/30 shrink-0 mt-1" />
+          <button
+            onClick={onRefresh}
+            disabled={loading}
+            className="p-1.5 rounded-lg text-emerald-400/30 hover:text-emerald-400 hover:bg-emerald-500/10 transition-all duration-200 disabled:opacity-50 shrink-0"
+            title="Refresh market trends"
+          >
+            <RefreshCw className={`size-3.5 ${loading ? "animate-spin" : ""}`} />
+          </button>
         </div>
 
         {loading ? (
@@ -517,6 +526,20 @@ export function BusinessSection() {
   const [stocksLoading, setStocksLoading] = useState(true);
   const [marketLoading, setMarketLoading] = useState(true);
 
+  const refreshMarketTrends = useCallback(async (refresh = false) => {
+    setMarketLoading(true);
+    try {
+      const url = `/api/market-trends${refresh ? `?refresh=true&t=${Date.now()}` : ""}`;
+      const res = await fetch(url, refresh ? { cache: "no-store" } : undefined);
+      const data = await res.json();
+      setMarketContent(data.content || "");
+    } catch {
+      setMarketContent("");
+    } finally {
+      setMarketLoading(false);
+    }
+  }, []);
+
   const fetchAll = useCallback(async () => {
     const fetchArticles = async () => {
       try {
@@ -556,22 +579,10 @@ export function BusinessSection() {
       }
     };
 
-    const fetchMarketTrends = async () => {
-      try {
-        const res = await fetch("/api/market-trends");
-        const data = await res.json();
-        setMarketContent(data.content || "");
-      } catch {
-        setMarketContent("");
-      } finally {
-        setMarketLoading(false);
-      }
-    };
-
     fetchArticles();
     fetchRundown();
     fetchStocks();
-    fetchMarketTrends();
+    refreshMarketTrends();
   }, []);
 
   useEffect(() => {
@@ -597,7 +608,7 @@ export function BusinessSection() {
       )}
 
       {/* 2. Market Trends */}
-      <MarketTrendsCard content={marketContent} loading={marketLoading} />
+      <MarketTrendsCard content={marketContent} loading={marketLoading} onRefresh={() => refreshMarketTrends(true)} />
 
       {/* 3. TechCrunch News */}
       {articlesLoading ? (
