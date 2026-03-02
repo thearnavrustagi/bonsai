@@ -19,18 +19,21 @@ const accentColors = {
     hoverBg: "hover:bg-gold/10",
     border: "border-gold/10",
     divider: "via-gold/15",
+    progress: "from-gold to-[#A8863F]",
   },
   purple: {
     text: "text-simon-purple-light",
     hoverBg: "hover:bg-simon-purple/10",
     border: "border-simon-purple/10",
     divider: "via-simon-purple/15",
+    progress: "from-simon-purple to-simon-purple-light",
   },
   emerald: {
     text: "text-emerald-400",
     hoverBg: "hover:bg-emerald-500/10",
     border: "border-emerald-500/10",
     divider: "via-emerald-500/15",
+    progress: "from-emerald-500 to-emerald-400",
   },
 };
 
@@ -43,6 +46,7 @@ export function ArticleNavbar({
 }: ArticleNavbarProps) {
   const [visible, setVisible] = useState(true);
   const [copied, setCopied] = useState(false);
+  const [progress, setProgress] = useState(0);
   const lastScrollY = useRef(0);
   const ticking = useRef(false);
 
@@ -73,6 +77,11 @@ export function ArticleNavbar({
       ticking.current = true;
       requestAnimationFrame(() => {
         const currentY = window.scrollY;
+        
+        // Calculate progress
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        setProgress(docHeight > 0 ? (currentY / docHeight) * 100 : 0);
+
         if (currentY < 60) {
           setVisible(true);
         } else if (currentY > lastScrollY.current + 5) {
@@ -97,8 +106,15 @@ export function ArticleNavbar({
         visible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="backdrop-blur-xl bg-background/80 border-b border-divider/40">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+      <div 
+        className="backdrop-blur-xl bg-background/80 border-b border-divider/40 relative"
+        style={{ paddingTop: 'env(safe-area-inset-top)' }}
+      >
+        <div
+          className={`absolute bottom-0 left-0 h-[2px] bg-gradient-to-r ${colors.progress} transition-[width] duration-75 ease-linear z-10`}
+          style={{ width: `${progress}%` }}
+        />
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between relative z-20">
           {/* Left: Back */}
           <Link
             href="/"
