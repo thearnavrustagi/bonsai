@@ -4,6 +4,8 @@ import { useEffect, useState, use } from "react";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { ArticleNavbar } from "@/components/article-navbar";
+import { useBookmarks } from "@/lib/use-bookmarks";
 
 interface BlogPost {
   id: string;
@@ -36,6 +38,7 @@ export default function BlogPostPage({ params }: BlogPageProps) {
   const [post, setPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const { isBookmarked, toggleBookmark } = useBookmarks();
 
   useEffect(() => {
     async function load() {
@@ -61,10 +64,21 @@ export default function BlogPostPage({ params }: BlogPageProps) {
     load();
   }, [id]);
 
+  const bookmarkItem = post
+    ? {
+        id: post.id,
+        title: post.title,
+        type: "blog" as const,
+        url: `/blog/${post.id}`,
+        source: "Simon Willison",
+      }
+    : undefined;
+
   if (loading) {
     return (
       <main className="min-h-screen bg-background">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
+        <ArticleNavbar accent="purple" />
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 pt-20">
           <Skeleton className="h-4 w-32 bg-surface rounded-lg mb-10" />
           <div className="space-y-3 mb-8">
             <Skeleton className="h-5 w-48 bg-surface rounded-lg" />
@@ -87,6 +101,7 @@ export default function BlogPostPage({ params }: BlogPageProps) {
   if (error || !post) {
     return (
       <main className="min-h-screen bg-background flex items-center justify-center">
+        <ArticleNavbar accent="purple" />
         <div className="text-center px-4">
           <h1 className="font-[family-name:var(--font-playfair)] text-4xl font-bold text-warm-white mb-4">
             Post not found
@@ -108,15 +123,14 @@ export default function BlogPostPage({ params }: BlogPageProps) {
 
   return (
     <main className="min-h-screen bg-background">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 font-[family-name:var(--font-dm-sans)] text-sm text-beige-dim hover:text-simon-purple-light transition-colors duration-200 mb-8"
-        >
-          <ArrowLeft className="size-4" />
-          Back to BonsAI
-        </Link>
-
+      <ArticleNavbar
+        accent="purple"
+        bookmarkItem={bookmarkItem}
+        isBookmarked={isBookmarked(post.id)}
+        onToggleBookmark={() => bookmarkItem && toggleBookmark(bookmarkItem)}
+        shareTitle={post.title}
+      />
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 pt-20">
         <article>
           <header className="mb-8">
             <time className="block font-[family-name:var(--font-lora)] text-xs text-beige-dim tracking-wider mb-3">
@@ -160,14 +174,7 @@ export default function BlogPostPage({ params }: BlogPageProps) {
 
         <footer className="py-8 mt-8">
           <div className="h-px bg-gradient-to-r from-transparent via-simon-purple/20 to-transparent mb-6" />
-          <div className="flex justify-between items-center">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 font-[family-name:var(--font-dm-sans)] text-sm text-beige-dim hover:text-simon-purple-light transition-colors duration-200"
-            >
-              <ArrowLeft className="size-4" />
-              Back to BonsAI
-            </Link>
+          <div className="flex justify-end items-center">
             <a
               href={post.link}
               target="_blank"

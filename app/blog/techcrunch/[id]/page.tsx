@@ -4,6 +4,8 @@ import { useEffect, useState, useRef, use } from "react";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink, TrendingUp } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { ArticleNavbar } from "@/components/article-navbar";
+import { useBookmarks } from "@/lib/use-bookmarks";
 
 interface BusinessArticle {
   id: string;
@@ -103,6 +105,7 @@ export default function TechCrunchArticlePage({ params }: TechCrunchPageProps) {
   const [loading, setLoading] = useState(true);
   const [contentLoading, setContentLoading] = useState(true);
   const [error, setError] = useState(false);
+  const { isBookmarked, toggleBookmark } = useBookmarks();
 
   useEffect(() => {
     async function load() {
@@ -143,10 +146,22 @@ export default function TechCrunchArticlePage({ params }: TechCrunchPageProps) {
   const displayContent = fullContent || article?.content || "";
   const contentRef = useCleanedContent(displayContent);
 
+  const bookmarkItem = article
+    ? {
+        id: article.id,
+        title: article.title,
+        type: "techcrunch" as const,
+        url: `/blog/techcrunch/${article.id}`,
+        thumbnail: article.thumbnail,
+        source: "TechCrunch",
+      }
+    : undefined;
+
   if (loading) {
     return (
       <main className="min-h-screen bg-background">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
+        <ArticleNavbar accent="emerald" />
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 pt-20">
           <Skeleton className="h-4 w-32 bg-surface rounded-lg mb-10" />
           <div className="space-y-3 mb-8">
             <Skeleton className="h-5 w-48 bg-surface rounded-lg" />
@@ -169,6 +184,7 @@ export default function TechCrunchArticlePage({ params }: TechCrunchPageProps) {
   if (error || !article) {
     return (
       <main className="min-h-screen bg-background flex items-center justify-center">
+        <ArticleNavbar accent="emerald" />
         <div className="text-center px-4">
           <h1 className="font-[family-name:var(--font-playfair)] text-4xl font-bold text-warm-white mb-4">
             Article not found
@@ -190,15 +206,14 @@ export default function TechCrunchArticlePage({ params }: TechCrunchPageProps) {
 
   return (
     <main className="min-h-screen bg-background">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 font-[family-name:var(--font-dm-sans)] text-sm text-beige-dim hover:text-emerald-400 transition-colors duration-200 mb-8"
-        >
-          <ArrowLeft className="size-4" />
-          Back to BonsAI
-        </Link>
-
+      <ArticleNavbar
+        accent="emerald"
+        bookmarkItem={bookmarkItem}
+        isBookmarked={isBookmarked(article.id)}
+        onToggleBookmark={() => bookmarkItem && toggleBookmark(bookmarkItem)}
+        shareTitle={article.title}
+      />
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 pt-20">
         <article>
           {article.thumbnail && (
             <div className="relative w-full aspect-[2.2/1] overflow-hidden rounded-xl border border-emerald-500/15 mb-6">
@@ -268,14 +283,7 @@ export default function TechCrunchArticlePage({ params }: TechCrunchPageProps) {
 
         <footer className="py-8 mt-8">
           <div className="h-px bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent mb-6" />
-          <div className="flex justify-between items-center">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 font-[family-name:var(--font-dm-sans)] text-sm text-beige-dim hover:text-emerald-400 transition-colors duration-200"
-            >
-              <ArrowLeft className="size-4" />
-              Back to BonsAI
-            </Link>
+          <div className="flex justify-end items-center">
             <a
               href={article.link}
               target="_blank"

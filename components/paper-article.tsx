@@ -1,9 +1,8 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ExternalLink, FileDown } from "lucide-react";
+import { ExternalLink, FileDown } from "lucide-react";
 import { MarkdownContent, MermaidBlock } from "@/components/markdown-content";
 import { PdfPageViewer } from "@/components/pdf-figure";
 import type { PaperSummary } from "@/lib/types";
@@ -175,16 +174,7 @@ export function PaperArticle({ paper, date }: PaperArticleProps) {
       <ReadingProgress />
       <TableOfContents paper={paper} activeId={activeSection} />
 
-      <article className="max-w-4xl mx-auto px-5 sm:px-8 py-8">
-        {/* Back nav */}
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 font-[family-name:var(--font-dm-sans)] text-sm text-beige-dim hover:text-gold transition-colors duration-200 mb-10 group"
-        >
-          <ArrowLeft className="size-4 group-hover:-translate-x-0.5 transition-transform duration-200" />
-          Back to all papers
-        </Link>
-
+      <article className="max-w-4xl mx-auto px-5 sm:px-8 py-8 pt-20">
         {/* Header */}
         <header className="mb-12">
           <div className="flex flex-wrap items-center gap-2.5 mb-5">

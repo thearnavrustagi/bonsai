@@ -31,20 +31,30 @@ export interface FetchedPaper {
   thumbnail?: string;
 }
 
-export async function fetchDailyPapers(limit = 10): Promise<FetchedPaper[]> {
+export async function fetchDailyPapers(limit = 10, targetDate?: string): Promise<FetchedPaper[]> {
   let data: HFPaper[] = [];
 
-  for (let daysBack = 0; daysBack < 7; daysBack++) {
-    const date = new Date(Date.now() - daysBack * 86400000).toISOString().split("T")[0];
-    console.log(`[huggingface] Trying date=${date} (daysBack=${daysBack})`);
+  if (targetDate) {
+    console.log(`[huggingface] Fetching papers for specific date=${targetDate}`);
     const res = await axios.get<HFPaper[]>(HF_DAILY_PAPERS_URL, {
-      params: { date },
+      params: { date: targetDate },
       timeout: 10000,
     });
-    console.log(`[huggingface] API returned ${res.data.length} papers for ${date}`);
-    if (res.data.length > 0) {
-      data = res.data;
-      break;
+    console.log(`[huggingface] API returned ${res.data.length} papers for ${targetDate}`);
+    data = res.data;
+  } else {
+    for (let daysBack = 0; daysBack < 7; daysBack++) {
+      const date = new Date(Date.now() - daysBack * 86400000).toISOString().split("T")[0];
+      console.log(`[huggingface] Trying date=${date} (daysBack=${daysBack})`);
+      const res = await axios.get<HFPaper[]>(HF_DAILY_PAPERS_URL, {
+        params: { date },
+        timeout: 10000,
+      });
+      console.log(`[huggingface] API returned ${res.data.length} papers for ${date}`);
+      if (res.data.length > 0) {
+        data = res.data;
+        break;
+      }
     }
   }
 

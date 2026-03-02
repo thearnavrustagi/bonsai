@@ -1,7 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Wrench, Briefcase } from "lucide-react";
+import { Wrench, Briefcase, User, ChevronLeft, ChevronRight } from "lucide-react";
 import { TOPICS, type TopicId } from "@/lib/topics";
 import type { Tab } from "./floating-nav";
 
@@ -24,6 +25,7 @@ const tabIcons: Record<string, typeof Wrench> = {
 
 interface MastheadProps {
   date: string;
+  onDateChange?: (date: string) => void;
   selectedTopic: TopicId;
   onTopicChange: (topic: TopicId) => void;
   selectedSubtopic: string;
@@ -51,8 +53,19 @@ function getVolumeIssue(dateStr: string): { volume: number; issue: number } {
   return { volume: Math.floor(diffDays / 365) + 1, issue };
 }
 
+function todayStr(): string {
+  return new Date().toISOString().split("T")[0];
+}
+
+function shiftDate(dateStr: string, days: number): string {
+  const d = new Date(dateStr + "T00:00:00");
+  d.setDate(d.getDate() + days);
+  return d.toISOString().split("T")[0];
+}
+
 export function Masthead({
   date,
+  onDateChange,
   selectedTopic,
   onTopicChange,
   selectedSubtopic,
@@ -62,9 +75,20 @@ export function Masthead({
   const { issue } = getVolumeIssue(date);
   const currentTopic = TOPICS.find((t) => t.id === selectedTopic);
   const subtopics = currentTopic?.subtopics ?? [];
+  const isToday = date === todayStr();
+  const canGoForward = !isToday;
 
   return (
-    <header className="pt-6 pb-2">
+    <header className="pt-6 pb-2 relative">
+      {/* Profile button */}
+      <Link
+        href="/profile"
+        className="absolute top-6 right-0 inline-flex items-center justify-center w-9 h-9 rounded-xl border border-divider/60 text-beige-dim/50 hover:text-beige hover:border-beige-dim/30 hover:bg-warm-white/5 transition-all duration-200 z-10"
+        aria-label="Profile"
+      >
+        <User className="size-[18px]" />
+      </Link>
+
       <h1 className="masthead-title text-center">
         <span className="text-warm-white">BONS</span>
         <motion.span
@@ -75,19 +99,55 @@ export function Masthead({
         </motion.span>
       </h1>
 
-      <div className="flex items-center justify-center gap-6 mt-3 mb-5">
-        <time
-          className="font-[family-name:var(--font-dm-sans)] font-medium tracking-[0.12em] uppercase text-beige-dim/60"
-          style={{ fontSize: "clamp(0.6rem, 0.5rem + 0.2vw, 0.75rem)" }}
-        >
-          {formatDate(date)}
-        </time>
-        <span
-          className="font-[family-name:var(--font-dm-sans)] font-bold tracking-wider text-beige-dim/50"
-          style={{ fontSize: "clamp(0.6rem, 0.5rem + 0.2vw, 0.75rem)" }}
-        >
-          #{issue}
-        </span>
+      <div className="flex items-center justify-center gap-2 mt-3 mb-5">
+        {activeTab === "research" && onDateChange ? (
+          <>
+            <button
+              onClick={() => onDateChange(shiftDate(date, -1))}
+              className="inline-flex items-center justify-center w-7 h-7 rounded-full border border-divider/60 text-beige-dim/50 hover:text-gold hover:border-gold/25 hover:bg-gold/5 transition-all duration-200"
+              aria-label="Previous day"
+            >
+              <ChevronLeft className="size-3.5" />
+            </button>
+            <div className="flex items-center gap-3 px-3 py-1 rounded-full bg-surface/50 border border-divider/30 min-w-[200px] justify-center">
+              <time
+                className="font-[family-name:var(--font-dm-sans)] font-medium tracking-[0.12em] uppercase text-beige-dim/60"
+                style={{ fontSize: "clamp(0.6rem, 0.5rem + 0.2vw, 0.75rem)" }}
+              >
+                {isToday ? "Today" : formatDate(date)}
+              </time>
+              <span
+                className="font-[family-name:var(--font-dm-sans)] font-bold tracking-wider text-beige-dim/50"
+                style={{ fontSize: "clamp(0.6rem, 0.5rem + 0.2vw, 0.75rem)" }}
+              >
+                #{issue}
+              </span>
+            </div>
+            <button
+              onClick={() => onDateChange(shiftDate(date, 1))}
+              disabled={!canGoForward}
+              className="inline-flex items-center justify-center w-7 h-7 rounded-full border border-divider/60 text-beige-dim/50 hover:text-gold hover:border-gold/25 hover:bg-gold/5 transition-all duration-200 disabled:opacity-25 disabled:cursor-not-allowed disabled:hover:text-beige-dim/50 disabled:hover:border-divider/60 disabled:hover:bg-transparent"
+              aria-label="Next day"
+            >
+              <ChevronRight className="size-3.5" />
+            </button>
+          </>
+        ) : (
+          <>
+            <time
+              className="font-[family-name:var(--font-dm-sans)] font-medium tracking-[0.12em] uppercase text-beige-dim/60"
+              style={{ fontSize: "clamp(0.6rem, 0.5rem + 0.2vw, 0.75rem)" }}
+            >
+              {formatDate(date)}
+            </time>
+            <span
+              className="font-[family-name:var(--font-dm-sans)] font-bold tracking-wider text-beige-dim/50 ml-4"
+              style={{ fontSize: "clamp(0.6rem, 0.5rem + 0.2vw, 0.75rem)" }}
+            >
+              #{issue}
+            </span>
+          </>
+        )}
       </div>
 
       {activeTab === "research" ? (

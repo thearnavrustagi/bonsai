@@ -19,18 +19,19 @@ function todayDate(): string {
 
 export default function Home() {
   const [papers, setPapers] = useState<FeedPaper[]>([]);
-  const [date] = useState(todayDate());
+  const [date, setDate] = useState(todayDate());
   const [loading, setLoading] = useState(true);
   const [browseOpen, setBrowseOpen] = useState(false);
   const [selectedTopic, setSelectedTopic] = useState<TopicId>("ai");
   const [selectedSubtopic, setSelectedSubtopic] = useState("everything");
   const [activeTab, setActiveTab] = useState<Tab>("research");
 
-  const fetchFeed = useCallback(async (topic: TopicId, subtopic: string, refresh = false) => {
-    console.log(`[fetchFeed] called: topic=${topic} subtopic=${subtopic} refresh=${refresh}`);
+  const fetchFeed = useCallback(async (topic: TopicId, subtopic: string, feedDate?: string, refresh = false) => {
+    console.log(`[fetchFeed] called: topic=${topic} subtopic=${subtopic} date=${feedDate ?? "latest"} refresh=${refresh}`);
     setLoading(true);
     try {
-      const url = `/api/feed?topic=${topic}&subtopic=${subtopic}${refresh ? `&refresh=true&t=${Date.now()}` : ""}`;
+      const dateParam = feedDate && feedDate !== todayDate() ? `&date=${feedDate}` : "";
+      const url = `/api/feed?topic=${topic}&subtopic=${subtopic}${dateParam}${refresh ? `&refresh=true&t=${Date.now()}` : ""}`;
       console.log(`[fetchFeed] fetching: ${url}`);
       const res = await fetch(url, { cache: "no-store" });
       console.log(`[fetchFeed] response status: ${res.status}`);
@@ -65,8 +66,8 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    fetchFeed(selectedTopic, selectedSubtopic);
-  }, [selectedTopic, selectedSubtopic, fetchFeed]);
+    fetchFeed(selectedTopic, selectedSubtopic, date);
+  }, [selectedTopic, selectedSubtopic, date, fetchFeed]);
 
   const heroPaper = papers[0];
   const secondaryPapers = papers.slice(1, 3);
@@ -78,6 +79,7 @@ export default function Home() {
         {/* Masthead */}
         <Masthead
           date={date}
+          onDateChange={setDate}
           selectedTopic={selectedTopic}
           onTopicChange={setSelectedTopic}
           selectedSubtopic={selectedSubtopic}
@@ -98,7 +100,7 @@ export default function Home() {
             <section className="mt-6">
               <div className="mb-5 flex items-center justify-between py-3">
                 <button
-                  onClick={() => fetchFeed(selectedTopic, selectedSubtopic, true)}
+                  onClick={() => fetchFeed(selectedTopic, selectedSubtopic, date, true)}
                   disabled={loading}
                   className="inline-flex items-center gap-2 font-[family-name:var(--font-dm-sans)] font-semibold tracking-wider uppercase text-lg px-5 py-2.5 rounded-full bg-warm-white/5 border border-warm-white/10 text-beige-dim/70 hover:bg-warm-white/10 hover:border-warm-white/20 hover:text-beige transition-all duration-200 disabled:opacity-50"
                 >
@@ -248,7 +250,7 @@ export default function Home() {
       <BrowsePapersModal
         open={browseOpen}
         onClose={() => setBrowseOpen(false)}
-        onImportComplete={() => fetchFeed(selectedTopic, selectedSubtopic)}
+        onImportComplete={() => fetchFeed(selectedTopic, selectedSubtopic, date)}
         currentTopicId={selectedTopic}
         currentSubtopicId={selectedSubtopic}
       />

@@ -2,9 +2,11 @@
 
 import { useEffect, useState, use } from "react";
 import { PaperArticle } from "@/components/paper-article";
+import { ArticleNavbar } from "@/components/article-navbar";
 import { Skeleton } from "@/components/ui/skeleton";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { useBookmarks } from "@/lib/use-bookmarks";
 import type { PaperSummary } from "@/lib/types";
 
 interface PaperPageProps {
@@ -18,6 +20,7 @@ export default function PaperPage({ params }: PaperPageProps) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [summarizing, setSummarizing] = useState(false);
+  const { isBookmarked, toggleBookmark } = useBookmarks();
 
   useEffect(() => {
     const timer = setTimeout(() => setSummarizing(true), 3000);
@@ -44,10 +47,22 @@ export default function PaperPage({ params }: PaperPageProps) {
     return () => clearTimeout(timer);
   }, [id]);
 
+  const bookmarkItem = paper
+    ? {
+        id: paper.id,
+        title: paper.title,
+        type: "paper" as const,
+        url: `/paper/${paper.id}`,
+        thumbnail: paper.thumbnail,
+        source: "Research Paper",
+      }
+    : undefined;
+
   if (loading) {
     return (
       <main className="min-h-screen bg-background">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
+        <ArticleNavbar accent="gold" />
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 pt-20">
           {summarizing && (
             <div className="mb-8 text-center">
               <p className="font-[family-name:var(--font-dm-sans)] text-sm text-beige-dim animate-pulse">
@@ -77,6 +92,7 @@ export default function PaperPage({ params }: PaperPageProps) {
   if (error || !paper) {
     return (
       <main className="min-h-screen bg-background flex items-center justify-center">
+        <ArticleNavbar accent="gold" />
         <div className="text-center px-4">
           <h1 className="font-[family-name:var(--font-playfair)] text-4xl font-bold text-warm-white mb-4">
             Paper not found
@@ -98,6 +114,13 @@ export default function PaperPage({ params }: PaperPageProps) {
 
   return (
     <main className="min-h-screen bg-background">
+      <ArticleNavbar
+        accent="gold"
+        bookmarkItem={bookmarkItem}
+        isBookmarked={isBookmarked(paper.id)}
+        onToggleBookmark={() => bookmarkItem && toggleBookmark(bookmarkItem)}
+        shareTitle={paper.title}
+      />
       <PaperArticle paper={paper} date={date} />
     </main>
   );

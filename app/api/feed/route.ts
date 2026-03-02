@@ -16,12 +16,13 @@ export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const topic = (searchParams.get("topic") || "ai") as TopicId;
   const subtopic = searchParams.get("subtopic") || "everything";
+  const date = searchParams.get("date") || undefined;
 
-  const cacheKey = `feed/${topic}-${subtopic}`;
+  const cacheKey = date ? `feed/${topic}-${subtopic}-${date}` : `feed/${topic}-${subtopic}`;
 
   const refresh = searchParams.get("refresh") === "true";
 
-  console.log(`[feed] GET topic=${topic} subtopic=${subtopic} refresh=${refresh}`);
+  console.log(`[feed] GET topic=${topic} subtopic=${subtopic} date=${date ?? "latest"} refresh=${refresh}`);
 
   try {
     if (!refresh) {
@@ -50,7 +51,7 @@ export async function GET(request: NextRequest) {
 
     if (isHuggingFaceSource(topic, subtopic)) {
       console.log("[feed] Fetching from HuggingFace...");
-      const hfPapers = await fetchDailyPapers(10);
+      const hfPapers = await fetchDailyPapers(10, date);
       console.log(`[feed] HuggingFace returned ${hfPapers.length} papers:`, hfPapers.map(p => p.title));
       rawPapers = hfPapers.map((p) => ({
         id: p.id,
